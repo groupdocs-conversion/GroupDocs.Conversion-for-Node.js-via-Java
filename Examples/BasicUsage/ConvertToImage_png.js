@@ -1,7 +1,11 @@
-// TODO: Now it produces empty results. Should be implemented like exports.Workbook.createWorkbookFromStream from aspose.cells.js
 const util = require('util')
 const fs = require('fs')
 
+/** 
+ * This example demonstrates how to convert DOCX file into PNG format.
+ * For more details about Microsoft Word Open XML Document (.docx) to Portable Network Graphic (.png) conversion please check this documentation article 
+ * https://docs.groupdocs.com/conversion/net/convert-docx-to-png
+ */
 async function convertToImagePng(groupdocs, inputFilePath, outputFolder) {
   const outputFileTemplate = `${outputFolder}converted-page-%d.png`
 

@@ -1,3 +1,6 @@
+/**
+ * This example demonstrates how to get basic information about source document.
+ */
 function getSourceDocumentInfo(groupdocs, inputFilePath) {
   const converter = new groupdocs.conversion.Converter(inputFilePath)
   const pdfInfo = converter.getDocumentInfo()

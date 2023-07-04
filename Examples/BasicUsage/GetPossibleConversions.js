@@ -1,5 +1,8 @@
 const util = require('util')
 
+/**
+ * This example demonstrates how to get to what formats the source document could be converted
+ */
 function getPossibleConversions(groupdocs, inputFilePath) {
   const converter = new groupdocs.conversion.Converter(inputFilePath)
   const conversions = converter.getPossibleConversions()

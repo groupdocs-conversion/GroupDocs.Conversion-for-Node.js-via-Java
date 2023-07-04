@@ -1,5 +1,8 @@
 const fs = require('fs')
 
+/**
+ * This example demonstrates how to set license from stream.
+ */
 async function setLicense(groupdocs, licensePath) {
   const lic = new groupdocs.conversion.License()
   const readStream = fs.createReadStream(licensePath)
