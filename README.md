@@ -35,8 +35,6 @@ Directory | Description
 
 GroupDocs.Conversion for Node.js via Java requires J2SE 7.0 (1.7), J2SE 8.0 (1.8) or above. Please install Java first if you do not have it already. 
 
-GroupDocs hosts all Java APIs on [GroupDocs Artifact Repository](https://artifact.groupdocs.com/webapp/#/artifacts/browse/tree/General/repo/com/groupdocs/groupdocs-conversion), so simply [configure](https://docs.groupdocs.com/conversion/java/installation/) your Maven project to fetch the dependencies automatically.
-
 ## Convert DOCX to HTML
 
 ```js
