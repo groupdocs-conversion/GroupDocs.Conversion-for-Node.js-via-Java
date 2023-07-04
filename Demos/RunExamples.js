@@ -1,25 +1,24 @@
-require('dotenv').config()
-const groupdocs = require('../Examples/Groupdocs')
+const examples = require('../Examples/conversionExamples')
 
 // CALL EXAMPLES
 
-groupdocs.getPossibleConversions()
-groupdocs.getSourceDocumentInfo()
+examples.getPossibleConversions()
+examples.getSourceDocumentInfo()
 ;(async () => {
   try {
     console.log('Start conversion. \nIn Main() method uncomment the example that you want to run.')
-    await groupdocs.setLicense() // You can pass the licensePath as an argument, it's optional
+    await examples.setLicense() // You can pass the licensePath as an argument, it's optional
 
     await Promise.all([
       // NOTE: Please uncomment the example you want to try out
       // Basic usage
-      groupdocs.converToHTML(),
-      groupdocs.convertToPdf(),
-      groupdocs.convertToPresentation(),
-      groupdocs.convertToSpreadsheet(),
-      groupdocs.convertToWordProcessing(),
+      examples.convertToHTML(),
+      examples.convertToPdf(),
+      examples.convertToPresentation(),
+      examples.convertToSpreadsheet(),
+      examples.convertToWordProcessing(),
       // Advanced usage
-      groupdocs.convertToPdfWithAdvancedOptions(),
+      examples.convertToPdfWithAdvancedOptions(),
     ])
     console.log('The end of process.')
     process.exit(0)

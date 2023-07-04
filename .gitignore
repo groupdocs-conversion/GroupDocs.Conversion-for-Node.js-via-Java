@@ -35,23 +35,13 @@ lerna-debug.log*
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
+.gradle
+Output
 
 # Dependency directories
 node_modules/
-jspm_packages/
-
-# Snowpack dependency directory (https://snowpack.dev/)
-web_modules/
+groupdocs-conversion-23.2.jar
 
 # Optional npm cache directory
 .npm
 
-# Optional eslint cache
-.eslintcache
-
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
