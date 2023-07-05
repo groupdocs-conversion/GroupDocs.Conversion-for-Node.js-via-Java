@@ -7,7 +7,7 @@ const Constants = require('./constants')
 
 // Basic Methods
 const getPossibleConversions = require('./BasicUsage/getPossibleConversions')
-const getSourceDocumentInfo = require('./BasicUsage/getSourceDocument_info')
+const getSourceDocumentInfo = require('./BasicUsage/getSourceDocumenInfo')
 const setLicense = require('./QuickStart/setLicense')
 
 // Conversion Methods
