@@ -35,6 +35,18 @@ Directory | Description
 
 GroupDocs.Conversion for Node.js via Java requires J2SE 7.0 (1.7), J2SE 8.0 (1.8) or above. Please install Java first if you do not have it already. 
 
+Install the project dependencies:
+```
+npm install
+// check package.json for more information
+```
+  or manually install the following NPM packages:
+  * [Java](https://www.npmjs.com/package/java) to proceed Java files
+  * [Dotenv](https://www.npmjs.com/package/dotenv) to load environment variables from .env file
+
+GroupDocs.Conversion for Node.js via Java requires the **Gradle Build Tool** to be installed as well:
+  * [Gradle](https://gradle.org/install/) to download the GroupDocs.Conversion dependency
+
 ## Convert DOCX to HTML
 
 ```js
