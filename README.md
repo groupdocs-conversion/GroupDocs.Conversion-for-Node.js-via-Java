@@ -1,4 +1,4 @@
-# GroupDocs.Conversion-for-Node.js-via-Java
+# Document Conversion API for Node.js
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/groupdocs-conversion/GroupDocs.conversion-for-Java) ![GitHub](https://img.shields.io/github/license/groupdocs-conversion/GroupDocs.Conversion-for-Java)
 
