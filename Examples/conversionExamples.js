@@ -20,8 +20,9 @@ const convertToPdfWithAdvancedOptions = require('./AdvancedUsage/convertToPdfWit
 class ConversionExamples {
   constructor() {
     // Initialize the License
-    this.licensePath = Constants.LicensePath
-    if (!this.licensePath) console.log('License is not found, continuing with demo version!')
+    let lic = Constants.LicensePath
+    if (!lic || !lic.endsWith('.lic')) console.log('License is not found, continuing with demo version!')
+    else this.licensePath = lic
 
     // Initialize the model
     this.conversion = conversion
@@ -57,7 +58,7 @@ class ConversionExamples {
   }
 
   async setLicense(licensePath = '') {
-    return setLicense(this, licensePath || this.licensePath)
+    if (this.licensePath) return setLicense(this, licensePath || this.licensePath)
   }
 
   async convertToPdf(inputFilePath = '') {
