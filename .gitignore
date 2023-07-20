@@ -35,12 +35,10 @@ lerna-debug.log*
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
-.gradle
 Output
 
 # Dependency directories
 node_modules/
-groupdocs-conversion-23.2.jar
 
 # Optional npm cache directory
 .npm

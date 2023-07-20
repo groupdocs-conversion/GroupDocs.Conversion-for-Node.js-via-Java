@@ -38,21 +38,16 @@ GroupDocs.Conversion for Node.js via Java requires J2SE 7.0 (1.7), J2SE 8.0 (1.8
 Install the project dependencies:
 ```
 npm install
-// check package.json for more information
 ```
-  or manually install the following NPM packages:
-  * [Java](https://www.npmjs.com/package/java) to proceed Java files
-  * [Dotenv](https://www.npmjs.com/package/dotenv) to load environment variables from .env file
+  or manually install the following NPM package:
+  * [GroupDocs.Conversion](https://www.npmjs.com/package/@groupdocs/groupdocs.conversion) to proceed files
 
-GroupDocs.Conversion for Node.js via Java requires the **Gradle Build Tool** to be installed as well:
-  * [Gradle](https://gradle.org/install/) to download the GroupDocs.Conversion dependency
-
-## Convert DOCX to HTML
+## Convert DOCX to PDF
 
 ```js
-const converter = new groupdocs.conversion.Converter("sample.docx")
-const options = new groupdocs.conversion.MarkupConvertOptions()
-converter.convert("ConvertToHtml.html", options);
+const converter = new groupdocs.conversion.Converter(inputFilePath)
+const options = new groupdocs.conversion.PdfConvertOptions()
+converter.convert("output.pdf", options)
 ```
 
 ## Convert PDF to DOCX

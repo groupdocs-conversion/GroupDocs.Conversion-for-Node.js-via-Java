@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-const conversion = require('./groupdocs.conversion')
+const conversion = require('@groupdocs/groupdocs.conversion')
 
 // Constant Variables 
 const Constants = require('./constants')
@@ -15,7 +15,6 @@ const convertToPdf = require('./BasicUsage/convertToPdf')
 const convertToWordProcessing = require('./BasicUsage/convertToWordProcessing')
 const convertToSpreadsheet = require('./BasicUsage/convertToSpreadsheet')
 const convertToPresentation = require('./BasicUsage/convertToPresentation')
-const convertToHTML = require('./BasicUsage/convertToHtml')
 const convertToPdfWithAdvancedOptions = require('./AdvancedUsage/convertToPdfWithAdvancedOptions')
 
 class ConversionExamples {
@@ -59,10 +58,6 @@ class ConversionExamples {
 
   async setLicense(licensePath = '') {
     return setLicense(this, licensePath || this.licensePath)
-  }
-
-  async convertToHTML(inputFilePath = '') {
-    return convertToHTML(this, inputFilePath || this.inputFiles.sampleDocx)
   }
 
   async convertToPdf(inputFilePath = '') {

@@ -12,7 +12,6 @@ examples.getSourceDocumentInfo()
     await Promise.all([
       // NOTE: Please uncomment the example you want to try out
       // Basic usage
-      examples.convertToHTML(),
       examples.convertToPdf(),
       examples.convertToPresentation(),
       examples.convertToSpreadsheet(),
