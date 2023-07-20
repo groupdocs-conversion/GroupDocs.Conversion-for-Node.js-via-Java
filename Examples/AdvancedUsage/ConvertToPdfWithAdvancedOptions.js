@@ -1,7 +1,7 @@
 /**
  * This example demonstrates how to convert DOCX file into PDF format with advanced options.
  * For more details about Microsoft Word Open XML Document (.docx) to Portable Document (.pdf) conversion please check this documentation article 
- * https://docs.groupdocs.com/conversion/net/convert-docx-to-pdf
+ * https://docs.groupdocs.com/conversion
  */
 async function convertToPdfWithAdvancedOptions(groupdocs, inputFilePath) {
   const loadOptions = new groupdocs.conversion.WordProcessingLoadOptions()
@@ -9,7 +9,7 @@ async function convertToPdfWithAdvancedOptions(groupdocs, inputFilePath) {
 
   const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
 
-  const outputPath = `${groupdocs.outputFolder}ConvertToPdfWithAdvancedOptions.pdf`
+  const outputPath = `${groupdocs.outputFolder}/ConvertToPdfWithAdvancedOptions.pdf`
   const convertOptions = new groupdocs.conversion.PdfConvertOptions()
   convertOptions.setPageNumber(2)
   convertOptions.setPagesCount(1)

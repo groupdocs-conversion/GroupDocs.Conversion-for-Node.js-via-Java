@@ -2,7 +2,7 @@ const path = require('path')
 const SamplePath = path.join(__dirname, './Resources/SampleFiles')
 
 module.exports = {
-  LicensePath: path.join(__dirname, './Resources/GroupDocs.Conversion.lic'),
+  LicensePath: path.join(__dirname, '../GroupDocs.Conversion.Java.lic'),
   SamplePath,
   OutputPath: path.join(__dirname, 'Output'),
   SAMPLE_DOCX: SamplePath + '/sample.docx',
