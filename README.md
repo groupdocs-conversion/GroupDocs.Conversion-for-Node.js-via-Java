@@ -15,7 +15,6 @@ Directory | Description
 --------- | -----------
 [Docs](https://github.com/groupdocs-conversion/GroupDocs.Conversion-Docs)  | Product documentation containing the Developer's Guide, Release Notes and more.
 [Examples](https://github.com/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java/tree/demo/Examples)  | Node.js examples and sample documents for you to get started quickly. 
-[Demos](https://github.com/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java/tree/demo/Demos)  | Build Document Conversion applications using GroupDocs.Conversion for Node.js via Java. 
 
 ## Universal Document Converter 
 
