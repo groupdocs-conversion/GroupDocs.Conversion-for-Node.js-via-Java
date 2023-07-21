@@ -1,6 +1,6 @@
 # Document Conversion API for Node.js
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/groupdocs-conversion/GroupDocs.conversion-for-Java) ![GitHub](https://img.shields.io/github/license/groupdocs-conversion/GroupDocs.Conversion-for-Java)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java) ![GitHub](https://img.shields.io/github/license/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java)
 
 GroupDocs.Conversion for Node.js via Java is a [Document Conversion Library](https://products.groupdocs.com/conversion/java) designed to convert back and forth between over [50 types of documents and images](https://docs.groupdocs.com/conversion/java/supported-document-formats/), including all Microsoft Office and OpenDocument file formats, PDF documents, HTML, CAD, raster images (TIFF, JPEG, GIF, PNG, BMP) and more. 
 
@@ -65,4 +65,4 @@ const options = new groupdocs.conversion.PresentationConvertOptions()
 converter.convert("output.pptx", options)
 ```
 
-[Home](https://www.groupdocs.com/) | [Product Page](https://products.groupdocs.com/conversion/java) | [Documentation](https://docs.groupdocs.com/conversion/java/) | [Demos](https://products.groupdocs.app/conversion/family) | [API Reference](https://apireference.groupdocs.com/java/conversion) | [Examples](https://github.com/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java/tree/demo/Examples) | [Blog](https://blog.groupdocs.com/category/annotation/) | [Free Support](https://forum.groupdocs.com/c/conversion) | [Temporary License](https://purchase.groupdocs.com/temporary-license)
+[Home](https://www.groupdocs.com/) | [Product Page](https://products.groupdocs.com/conversion/nodejs-java) | [Documentation](https://docs.groupdocs.com/conversion/nodejs-java/) | [Demos](https://products.groupdocs.app/conversion/family) | [API Reference](https://apireference.groupdocs.com/java/conversion) | [Examples](https://github.com/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java/tree/master/Examples) | [Blog](https://blog.groupdocs.com/category/conversion/) | [Free Support](https://forum.groupdocs.com/c/conversion) | [Temporary License](https://purchase.groupdocs.com/temporary-license)
