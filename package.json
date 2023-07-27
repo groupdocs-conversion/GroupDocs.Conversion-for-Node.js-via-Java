@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "GroupDocs.Conversion for Node.js via Java examples, plugins and showcase projects",
   "scripts": {
-    "prepare": "echo \"Downloading dependecies via gradle\nIf you have no gradle, please, install it, then run the following command `gradle downloadDependency` manually.\" && gradle downloadDependency",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
