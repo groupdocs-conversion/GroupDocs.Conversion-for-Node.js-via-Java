@@ -17,7 +17,14 @@ examples.getSourceDocumentInfo()
       examples.convertToSpreadsheet(),
       examples.convertToWordProcessing(),
       // Advanced usage
+      examples.convertConsecutivePagesPdf(),
+      examples.convertSpecificPagesPdf(),
       examples.convertToPdfWithAdvancedOptions(),
+      examples.convertToImageWithAdvancedOptions(),
+      examples.convertToHtmlWithAdvancedOptions(),
+      examples.convertToPresentationWithAdvancedOptions(),
+      examples.convertToSpreadsheetWithAdvancedOptions(),
+      examples.convertToWordProcessingWithAdvancedOptions()
     ])
     console.log('The end of process.')
     process.exit(0)
