@@ -1,7 +1,5 @@
 /**
- * This example demonstrates how to convert to WordProcessing document with advanced options.
- * For more details about Microsoft Word Open XML Document (.docx) to Portable Document (.pdf) conversion please check this documentation article 
- * https://docs.groupdocs.com/conversion
+ * This example demonstrates how to convert a pdf document to wordprocessing document and specifying pages to be converted
  */
 async function  convertToWordProcessingWithAdvancedOptions(groupdocs, inputFilePath) {
   const loadOptions = new groupdocs.conversion.WordProcessingLoadOptions()

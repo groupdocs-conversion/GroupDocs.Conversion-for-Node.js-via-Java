@@ -1,9 +1,6 @@
-const ArrayList = require('java').import('java.util.ArrayList');
 /**
- * This example demonstrates how to convert 3 consecutive pages starting from second page of the source document
- * For more details about Microsoft Word Open XML Document (.docx) to Portable Document (.pdf) conversion please check this documentation article 
- * https://docs.groupdocs.com/conversion
- */
+* This example demonstrates how to convert range of pages
+*/
 async function convertConsecutivePages(groupdocs, inputFilePath) {
   const converter = new groupdocs.conversion.Converter(inputFilePath)
   const convertOptions = new groupdocs.conversion.PdfConvertOptions()

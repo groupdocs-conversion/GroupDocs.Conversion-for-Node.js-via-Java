@@ -1,10 +1,11 @@
 /**
- * This example demonstrates how to convert to Spreadsheet with advanced options.
- * For more details about Microsoft Word Open XML Document (.docx) to Portable Document (.pdf) conversion please check this documentation article 
- * https://docs.groupdocs.com/conversion
+ * This example demonstrates how to convert password-protected document to Spreadsheet and specifying pages to be converted
  */
 async function convertToSpreadsheetWithAdvancedOptions(groupdocs, inputFilePath) {
-  const converter = new groupdocs.conversion.Converter(inputFilePath)
+  const loadOptions = new groupdocs.conversion.WordProcessingLoadOptions()
+  loadOptions.setPassword('12345')
+
+  const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
 
   const outputPath = `${groupdocs.outputFolder}/convertToSpreadsheetWithAdvancedOptions.xls`
   const convertOptions = new groupdocs.conversion.SpreadsheetConvertOptions()

@@ -1,8 +1,6 @@
 const ArrayList = require('java').import('java.util.ArrayList');
 /**
- * This example demonstrates how to convert first and third pages from the source document
- * For more details about Microsoft Word Open XML Document (.docx) to Portable Document (.pdf) conversion please check this documentation article 
- * https://docs.groupdocs.com/conversion
+ * This example demonstrates how to convert specific pages
  */
 async function convertSpecificPages(groupdocs, inputFilePath) {
   const converter = new groupdocs.conversion.Converter(inputFilePath)

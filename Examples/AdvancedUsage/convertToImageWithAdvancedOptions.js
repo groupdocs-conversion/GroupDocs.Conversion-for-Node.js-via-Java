@@ -2,9 +2,7 @@ const util = require('util')
 const fs = require('fs')
 const java = require('java')
 /**
- * This example demonstrates how to convert DOCX file into PDF format with advanced options.
- * For more details about Microsoft Word Open XML Document (.docx) to Portable Document (.pdf) conversion please check this documentation article 
- * https://docs.groupdocs.com/conversion
+ * This example demonstrates how to convert a pdf document to image with advanced options
  */
 async function convertToImageWithAdvancedOptions(groupdocs, inputFilePath) {
   const outputFileTemplate = "ConvertToImageWithAdvancedOptions-converted-page-%s.png"; 
