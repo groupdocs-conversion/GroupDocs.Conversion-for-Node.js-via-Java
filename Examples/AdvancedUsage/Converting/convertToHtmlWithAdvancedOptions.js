@@ -7,7 +7,7 @@ async function convertToHtmlWithAdvancedOptions(groupdocs, inputFilePath) {
 
   const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
 
-  const outputPath = `${groupdocs.outputFolder}/convertToHtmlWithAdvancedOptions.html`
+  const outputPath = `${groupdocs.outputFolder}/ConvertToHtmlWithAdvancedOptions.html`
   const convertOptions = new groupdocs.conversion.MarkupConvertOptions()
   convertOptions.setPageNumber(2);
   convertOptions.setFixedLayout(true);

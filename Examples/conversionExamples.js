@@ -17,15 +17,26 @@ const convertToWordProcessing = require('./BasicUsage/convertToWordProcessing')
 const convertToSpreadsheet = require('./BasicUsage/convertToSpreadsheet')
 const convertToPresentation = require('./BasicUsage/convertToPresentation')
 
-// Conversion with advanced options
-const convertToPdfWithAdvancedOptions = require('./AdvancedUsage/convertToPdfWithAdvancedOptions')
-const convertConsecutivePagesPdf = require('./AdvancedUsage/convertNConsecutivePages');
-const convertSpecificPages = require('./AdvancedUsage/convertSpecificPages')
-const convertToImageWithAdvancedOptions = require('./AdvancedUsage/convertToImageWithAdvancedOptions')
-const convertToHtmlWithAdvancedOptions = require('./AdvancedUsage/convertToHtmlWithAdvancedOptions')
-const convertToPresentationWithAdvancedOptions = require('./AdvancedUsage/convertToPresentationWithAdvancedOptions')
-const convertToSpreadsheetWithAdvancedOptions = require('./AdvancedUsage/convertToSpreadsheetWithAdvancedOptions')
-const convertToWordProcessingWithAdvancedOptions = require('./AdvancedUsage/convertToWordProcessingWithAdvancedOptions')
+/* Conversion with advanced options */
+//    Converting
+const convertToPdfWithAdvancedOptions = require('./AdvancedUsage/converting/convertToPdfWithAdvancedOptions')
+const convertConsecutivePagesPdf = require('./AdvancedUsage/converting/convertNConsecutivePages');
+const convertSpecificPages = require('./AdvancedUsage/converting/convertSpecificPages')
+const convertToImageWithAdvancedOptions = require('./AdvancedUsage/converting/convertToImageWithAdvancedOptions')
+const convertToHtmlWithAdvancedOptions = require('./AdvancedUsage/converting/convertToHtmlWithAdvancedOptions')
+const convertToPresentationWithAdvancedOptions = require('./AdvancedUsage/converting/convertToPresentationWithAdvancedOptions')
+const convertToSpreadsheetWithAdvancedOptions = require('./AdvancedUsage/converting/convertToSpreadsheetWithAdvancedOptions')
+const convertToWordProcessingWithAdvancedOptions = require('./AdvancedUsage/converting/convertToWordProcessingWithAdvancedOptions')
+//    Loading
+const convertPdfAndFlattenAllFields = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Pdf/convertPdfAndFlattenAllFields')
+const convertPdfAndHideAnnotations = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Pdf/convertPdfAndHideAnnotations')
+const convertPdfAndRemoveEmbeddedFiles = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Pdf/convertPdfAndRemoveEmbeddedFiles')
+const convertPresentationByHiddingComments = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Presentation/convertPresentationByHiddingComments')
+const convertPresentationBySpecifyingFontSubstitution = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Presentation/convertPresentationBySpecifyingFontSubstitution')
+const convertPresentationWithHiddenSlidesIncluded = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Presentation/convertPresentationWithHiddenSlidesIncluded')
+const convertWordProcessingByHiddingComments = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/WordProcessing/convertWordProcessingByHiddingComments')
+const convertWordProcessingByHiddingTrackedChanges = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/WordProcessing/convertWordProcessingByHiddingTrackedChanges')
+const convertWordProcessingBySpecifyingFontSubstitution = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/WordProcessing/convertWordProcessingBySpecifyingFontSubstitution')
 
 class ConversionExamples {
   constructor() {
@@ -47,6 +58,9 @@ class ConversionExamples {
       samplePdf: Constants.SAMPLE_PDF,
       sampleDocx: Constants.SAMPLE_DOCX,
       sampleDocxPasswordProtected: Constants.SAMPLE_DOCX_WITH_PASSWORD,
+      pptsWithNotes: Constants.PPTX_WITH_NOTES,
+      pptxWithHiddenPage: Constants.SAMPLE_PPTX_HIDDEN_PAGE,
+      sampleDocxWithTrackedChanges: Constants.SAMPLE_DOCX_WITH_TRACKED_CHANGES
     }
   }
 
@@ -120,6 +134,42 @@ class ConversionExamples {
 
   async convertToWordProcessingWithAdvancedOptions(inputFilePath = '') {
     return convertToWordProcessingWithAdvancedOptions(this, inputFilePath || this.inputFiles.samplePdf)
+  }
+
+  async convertPdfAndFlattenAllFields (inputFilePath = '') {
+    return convertPdfAndFlattenAllFields(this, inputFilePath || this.inputFiles.samplePdf)
+  }
+
+  async convertPdfAndHideAnnotations (inputFilePath = '') {
+    return convertPdfAndHideAnnotations(this, inputFilePath || this.inputFiles.samplePdf)
+  }
+
+  async convertPdfAndRemoveEmbeddedFiles (inputFilePath = '') {
+    return convertPdfAndRemoveEmbeddedFiles(this, inputFilePath || this.inputFiles.samplePdf)
+  }
+
+  async convertPresentationByHiddingComments (inputFilePath = '') {
+    return convertPresentationByHiddingComments(this, inputFilePath || this.inputFiles.pptsWithNotes)
+  }
+
+  async convertPresentationBySpecifyingFontSubstitution (inputFilePath = '') {
+    return convertPresentationBySpecifyingFontSubstitution(this, inputFilePath || this.inputFiles.pptsWithNotes)
+  }
+
+  async convertPresentationWithHiddenSlidesIncluded (inputFilePath = '') {
+    return convertPresentationWithHiddenSlidesIncluded(this, inputFilePath || this.inputFiles.pptxWithHiddenPage)
+  }
+
+  async convertWordProcessingByHiddingComments (inputFilePath = '') {
+    return convertWordProcessingByHiddingComments(this, inputFilePath || this.inputFiles.sampleDocxWithTrackedChanges)
+  }
+
+  async convertWordProcessingByHiddingTrackedChanges (inputFilePath = '') {
+    return convertWordProcessingByHiddingTrackedChanges(this, inputFilePath || this.inputFiles.sampleDocxWithTrackedChanges)
+  }
+
+  async convertWordProcessingBySpecifyingFontSubstitution (inputFilePath = '') {
+    return convertWordProcessingBySpecifyingFontSubstitution(this, inputFilePath || this.inputFiles.sampleDocxWithTrackedChanges)
   }
 }
 

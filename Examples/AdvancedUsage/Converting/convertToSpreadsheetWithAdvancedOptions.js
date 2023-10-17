@@ -7,7 +7,7 @@ async function convertToSpreadsheetWithAdvancedOptions(groupdocs, inputFilePath)
 
   const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
 
-  const outputPath = `${groupdocs.outputFolder}/convertToSpreadsheetWithAdvancedOptions.xls`
+  const outputPath = `${groupdocs.outputFolder}/ConvertToSpreadsheetWithAdvancedOptions.xls`
   const convertOptions = new groupdocs.conversion.SpreadsheetConvertOptions()
   convertOptions.setPageNumber(2)
   convertOptions.setPagesCount(1)

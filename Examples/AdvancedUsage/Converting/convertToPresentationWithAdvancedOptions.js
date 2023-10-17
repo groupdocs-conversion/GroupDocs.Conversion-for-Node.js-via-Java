@@ -7,7 +7,7 @@ async function convertToPresentationWithAdvancedOptions(groupdocs, inputFilePath
 
   const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
   
-  const outputPath = `${groupdocs.outputFolder}/convertToPresentationWithAdvancedOptions.ppt`
+  const outputPath = `${groupdocs.outputFolder}/ConvertToPresentationWithAdvancedOptions.ppt`
   const convertOptions = new groupdocs.conversion.PresentationConvertOptions()
   convertOptions.setPageNumber(2)
   convertOptions.setPagesCount(1)

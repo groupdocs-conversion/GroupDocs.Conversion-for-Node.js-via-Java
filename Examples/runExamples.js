@@ -11,20 +11,35 @@ examples.getSourceDocumentInfo()
 
     await Promise.all([
       // NOTE: Please uncomment the example you want to try out
-      // Basic usage
-      examples.convertToPdf(),
-      examples.convertToPresentation(),
-      examples.convertToSpreadsheet(),
-      examples.convertToWordProcessing(),
-      // Advanced usage
-      examples.convertConsecutivePagesPdf(),
-      examples.convertSpecificPagesPdf(),
-      examples.convertToPdfWithAdvancedOptions(),
-      examples.convertToImageWithAdvancedOptions(),
-      examples.convertToHtmlWithAdvancedOptions(),
-      examples.convertToPresentationWithAdvancedOptions(),
-      examples.convertToSpreadsheetWithAdvancedOptions(),
-      examples.convertToWordProcessingWithAdvancedOptions()
+      /* Basic usage */
+      // examples.convertToPdf(),
+      // examples.convertToPresentation(),
+      // examples.convertToSpreadsheet(),
+      // examples.convertToWordProcessing(),
+      /* Advanced usage */
+        /* Converting */
+      // examples.convertConsecutivePagesPdf(),
+      // examples.convertSpecificPagesPdf(),
+      // examples.convertToPdfWithAdvancedOptions(),
+      // examples.convertToImageWithAdvancedOptions(),
+      // examples.convertToHtmlWithAdvancedOptions(),
+      // examples.convertToPresentationWithAdvancedOptions(),
+      // examples.convertToSpreadsheetWithAdvancedOptions(),
+      // examples.convertToWordProcessingWithAdvancedOptions()
+        /* LoadOptions */
+          /* PDF */
+      // examples.convertPdfAndFlattenAllFields(),
+      // examples.convertPdfAndHideAnnotations(),
+      // examples.convertPdfAndRemoveEmbeddedFiles(),
+          /* Presentation */
+      // examples.convertPresentationByHiddingComments(),
+      // examples.convertPresentationBySpecifyingFontSubstitution(),
+      // examples.convertPresentationWithHiddenSlidesIncluded(),
+          /* WordProcessing */
+      examples.convertWordProcessingByHiddingComments(),
+      examples.convertWordProcessingByHiddingTrackedChanges(),
+      examples.convertWordProcessingBySpecifyingFontSubstitution(),
+
     ])
     console.log('The end of process.')
     process.exit(0)

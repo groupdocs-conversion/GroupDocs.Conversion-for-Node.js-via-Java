@@ -6,7 +6,7 @@
 async function convertToSpreadsheet(groupdocs, inputFilePath) {
   const converter = new groupdocs.conversion.Converter(inputFilePath)
   const convertOptions = new groupdocs.conversion.SpreadsheetConvertOptions()
-  const outputPath = `${groupdocs.outputFolder}/convertToSpreadsheet.xlsx`
+  const outputPath = `${groupdocs.outputFolder}/ConvertToSpreadsheet.xlsx`
 
   console.log(`Converted to ${outputPath}`)
   return converter.convert(outputPath, convertOptions)

@@ -7,7 +7,7 @@ async function  convertToWordProcessingWithAdvancedOptions(groupdocs, inputFileP
 
   const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
 
-  const outputPath = `${groupdocs.outputFolder}/convertToWordProcessingWithAdvancedOptions.odt`
+  const outputPath = `${groupdocs.outputFolder}/ConvertToWordProcessingWithAdvancedOptions.odt`
   const convertOptions = new groupdocs.conversion.WordProcessingConvertOptions()
   convertOptions.setPageNumber(2)
   convertOptions.setPagesCount(1)

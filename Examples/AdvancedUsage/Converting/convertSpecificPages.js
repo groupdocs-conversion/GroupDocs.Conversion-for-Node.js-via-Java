@@ -5,7 +5,7 @@ const ArrayList = require('java').import('java.util.ArrayList');
 async function convertSpecificPages(groupdocs, inputFilePath) {
   const converter = new groupdocs.conversion.Converter(inputFilePath)
   const convertOptions = new groupdocs.conversion.PdfConvertOptions()
-  const outputPath = `${groupdocs.outputFolder}/outputSpecPages.pdf`
+  const outputPath = `${groupdocs.outputFolder}/OutputSpecPages.pdf`
   
   const pages = new ArrayList()
   pages.add(1)
