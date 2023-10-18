@@ -43,6 +43,7 @@ const convertSpreadsheetBySkippingEmptyRowsAndColumns = require('./AdvancedUsage
 const convertSpreadsheetBySpecifyingFontsubstitution = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetBySpecifyingFontsubstitution')
 const convertSpreadsheetBySpecifyingRange = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetBySpecifyingRange')
 const convertSpreadsheetWithHiddenSheetsIncluded = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetWithHiddenSheetsIncluded')
+const convertXmlAsDataSourceToSpreadsheet = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Xml/convertXmlAsDataSourceToSpreadsheet')
 
 class ConversionExamples {
   constructor() {
@@ -68,7 +69,8 @@ class ConversionExamples {
       pptxWithHiddenPage: Constants.SAMPLE_PPTX_HIDDEN_PAGE,
       sampleDocxWithTrackedChanges: Constants.SAMPLE_DOCX_WITH_TRACKED_CHANGES,
       sampleXlsx: Constants.SAMPLE_XLSX,
-      sampleXlsxWithHiddenSheet: Constants.SAMPLE_XLSX_WITH_HIDDEN_SHEET
+      sampleXlsxWithHiddenSheet: Constants.SAMPLE_XLSX_WITH_HIDDEN_SHEET,
+      sampleDataSource: Constants.SAMPLE_DATASOURCE
     }
   }
 
@@ -202,6 +204,10 @@ class ConversionExamples {
 
   async convertSpreadsheetWithHiddenSheetsIncluded (inputFilePath = '') {
     return convertSpreadsheetWithHiddenSheetsIncluded(this, inputFilePath || this.inputFiles.sampleXlsxWithHiddenSheet)
+  }
+
+  async convertXmlAsDataSourceToSpreadsheet (inputFilePath = '') {
+    return convertXmlAsDataSourceToSpreadsheet(this, inputFilePath || this.inputFiles.sampleDataSource)
   }
 }
 

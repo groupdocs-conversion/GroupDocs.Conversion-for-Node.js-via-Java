@@ -13,4 +13,5 @@ module.exports = {
   SAMPLE_DOCX_WITH_TRACKED_CHANGES: SamplePath + '/with_tracked_changes.docx',
   SAMPLE_XLSX: SamplePath + '/sample.xlsx',
   SAMPLE_XLSX_WITH_HIDDEN_SHEET: SamplePath + '/with_hidden_sheet.xlsx',
+  SAMPLE_DATASOURCE: SamplePath + '/sample_datasource.xml',
 }

@@ -40,13 +40,14 @@ examples.getSourceDocumentInfo()
       // examples.convertWordProcessingByHiddingTrackedChanges(),
       // examples.convertWordProcessingBySpecifyingFontSubstitution(),
           /* Spreadsheet */
-      examples.convertSpreadsheetAndHideComments(),
-      examples.convertSpreadsheetByShowingGridLines(),
-      examples.convertSpreadsheetBySkippingEmptyRowsAndColumns(),
-      examples.convertSpreadsheetBySpecifyingFontsubstitution(),
-      examples.convertSpreadsheetBySpecifyingRange(),
-      examples.convertSpreadsheetWithHiddenSheetsIncluded(),
-
+      // examples.convertSpreadsheetAndHideComments(),
+      // examples.convertSpreadsheetByShowingGridLines(),
+      // examples.convertSpreadsheetBySkippingEmptyRowsAndColumns(),
+      // examples.convertSpreadsheetBySpecifyingFontsubstitution(),
+      // examples.convertSpreadsheetBySpecifyingRange(),
+      // examples.convertSpreadsheetWithHiddenSheetsIncluded(),
+          /* XML */
+      examples.convertXmlAsDataSourceToSpreadsheet(),
     ])
     console.log('The end of process.')
     process.exit(0)
