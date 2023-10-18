@@ -10,5 +10,7 @@ module.exports = {
   SAMPLE_DOCX_WITH_PASSWORD: SamplePath + '/password_protected.docx',
   PPTX_WITH_NOTES: SamplePath + '/with_notes.pptx',
   SAMPLE_PPTX_HIDDEN_PAGE: SamplePath + '/with_hidden_page.pptx',
-  SAMPLE_DOCX_WITH_TRACKED_CHANGES: SamplePath + '/with_tracked_changes.docx'
+  SAMPLE_DOCX_WITH_TRACKED_CHANGES: SamplePath + '/with_tracked_changes.docx',
+  SAMPLE_XLSX: SamplePath + '/sample.xlsx',
+  SAMPLE_XLSX_WITH_HIDDEN_SHEET: SamplePath + '/with_hidden_sheet.xlsx',
 }

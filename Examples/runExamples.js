@@ -36,9 +36,16 @@ examples.getSourceDocumentInfo()
       // examples.convertPresentationBySpecifyingFontSubstitution(),
       // examples.convertPresentationWithHiddenSlidesIncluded(),
           /* WordProcessing */
-      examples.convertWordProcessingByHiddingComments(),
-      examples.convertWordProcessingByHiddingTrackedChanges(),
-      examples.convertWordProcessingBySpecifyingFontSubstitution(),
+      // examples.convertWordProcessingByHiddingComments(),
+      // examples.convertWordProcessingByHiddingTrackedChanges(),
+      // examples.convertWordProcessingBySpecifyingFontSubstitution(),
+          /* Spreadsheet */
+      examples.convertSpreadsheetAndHideComments(),
+      examples.convertSpreadsheetByShowingGridLines(),
+      examples.convertSpreadsheetBySkippingEmptyRowsAndColumns(),
+      examples.convertSpreadsheetBySpecifyingFontsubstitution(),
+      examples.convertSpreadsheetBySpecifyingRange(),
+      examples.convertSpreadsheetWithHiddenSheetsIncluded(),
 
     ])
     console.log('The end of process.')

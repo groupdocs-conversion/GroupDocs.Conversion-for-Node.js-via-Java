@@ -31,12 +31,18 @@ const convertToWordProcessingWithAdvancedOptions = require('./AdvancedUsage/conv
 const convertPdfAndFlattenAllFields = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Pdf/convertPdfAndFlattenAllFields')
 const convertPdfAndHideAnnotations = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Pdf/convertPdfAndHideAnnotations')
 const convertPdfAndRemoveEmbeddedFiles = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Pdf/convertPdfAndRemoveEmbeddedFiles')
-const convertPresentationByHiddingComments = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Presentation/convertPresentationByHiddingComments')
+const convertPresentationByHidingComments = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Presentation/convertPresentationByHidingComments')
 const convertPresentationBySpecifyingFontSubstitution = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Presentation/convertPresentationBySpecifyingFontSubstitution')
 const convertPresentationWithHiddenSlidesIncluded = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Presentation/convertPresentationWithHiddenSlidesIncluded')
-const convertWordProcessingByHiddingComments = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/WordProcessing/convertWordProcessingByHiddingComments')
-const convertWordProcessingByHiddingTrackedChanges = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/WordProcessing/convertWordProcessingByHiddingTrackedChanges')
+const convertWordProcessingByHidingComments = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/WordProcessing/convertWordProcessingByHidingComments')
+const convertWordProcessingByHidingTrackedChanges = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/WordProcessing/convertWordProcessingByHidingTrackedChanges')
 const convertWordProcessingBySpecifyingFontSubstitution = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/WordProcessing/convertWordProcessingBySpecifyingFontSubstitution')
+const convertSpreadsheetAndHideComments = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetAndHideComments')
+const convertSpreadsheetByShowingGridLines = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetByShowingGridLines')
+const convertSpreadsheetBySkippingEmptyRowsAndColumns = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetBySkippingEmptyRowsAndColumns')
+const convertSpreadsheetBySpecifyingFontsubstitution = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetBySpecifyingFontsubstitution')
+const convertSpreadsheetBySpecifyingRange = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetBySpecifyingRange')
+const convertSpreadsheetWithHiddenSheetsIncluded = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetWithHiddenSheetsIncluded')
 
 class ConversionExamples {
   constructor() {
@@ -60,7 +66,9 @@ class ConversionExamples {
       sampleDocxPasswordProtected: Constants.SAMPLE_DOCX_WITH_PASSWORD,
       pptsWithNotes: Constants.PPTX_WITH_NOTES,
       pptxWithHiddenPage: Constants.SAMPLE_PPTX_HIDDEN_PAGE,
-      sampleDocxWithTrackedChanges: Constants.SAMPLE_DOCX_WITH_TRACKED_CHANGES
+      sampleDocxWithTrackedChanges: Constants.SAMPLE_DOCX_WITH_TRACKED_CHANGES,
+      sampleXlsx: Constants.SAMPLE_XLSX,
+      sampleXlsxWithHiddenSheet: Constants.SAMPLE_XLSX_WITH_HIDDEN_SHEET
     }
   }
 
@@ -148,8 +156,8 @@ class ConversionExamples {
     return convertPdfAndRemoveEmbeddedFiles(this, inputFilePath || this.inputFiles.samplePdf)
   }
 
-  async convertPresentationByHiddingComments (inputFilePath = '') {
-    return convertPresentationByHiddingComments(this, inputFilePath || this.inputFiles.pptsWithNotes)
+  async convertPresentationByHidingComments (inputFilePath = '') {
+    return convertPresentationByHidingComments(this, inputFilePath || this.inputFiles.pptsWithNotes)
   }
 
   async convertPresentationBySpecifyingFontSubstitution (inputFilePath = '') {
@@ -160,16 +168,40 @@ class ConversionExamples {
     return convertPresentationWithHiddenSlidesIncluded(this, inputFilePath || this.inputFiles.pptxWithHiddenPage)
   }
 
-  async convertWordProcessingByHiddingComments (inputFilePath = '') {
-    return convertWordProcessingByHiddingComments(this, inputFilePath || this.inputFiles.sampleDocxWithTrackedChanges)
+  async convertWordProcessingByHidingComments (inputFilePath = '') {
+    return convertWordProcessingByHidingComments(this, inputFilePath || this.inputFiles.sampleDocxWithTrackedChanges)
   }
 
-  async convertWordProcessingByHiddingTrackedChanges (inputFilePath = '') {
-    return convertWordProcessingByHiddingTrackedChanges(this, inputFilePath || this.inputFiles.sampleDocxWithTrackedChanges)
+  async convertWordProcessingByHidingTrackedChanges (inputFilePath = '') {
+    return convertWordProcessingByHidingTrackedChanges(this, inputFilePath || this.inputFiles.sampleDocxWithTrackedChanges)
   }
 
   async convertWordProcessingBySpecifyingFontSubstitution (inputFilePath = '') {
     return convertWordProcessingBySpecifyingFontSubstitution(this, inputFilePath || this.inputFiles.sampleDocxWithTrackedChanges)
+  }
+
+  async convertSpreadsheetAndHideComments (inputFilePath = '') {
+    return convertSpreadsheetAndHideComments(this, inputFilePath || this.inputFiles.sampleXlsx)
+  }
+
+  async convertSpreadsheetByShowingGridLines (inputFilePath = '') {
+    return convertSpreadsheetByShowingGridLines(this, inputFilePath || this.inputFiles.sampleXlsx)
+  }
+
+  async convertSpreadsheetBySkippingEmptyRowsAndColumns (inputFilePath = '') {
+    return convertSpreadsheetBySkippingEmptyRowsAndColumns(this, inputFilePath || this.inputFiles.sampleXlsx)
+  }
+
+  async convertSpreadsheetBySpecifyingFontsubstitution (inputFilePath = '') {
+    return convertSpreadsheetBySpecifyingFontsubstitution(this, inputFilePath || this.inputFiles.sampleXlsx)
+  }
+
+  async convertSpreadsheetBySpecifyingRange (inputFilePath = '') {
+    return convertSpreadsheetBySpecifyingRange(this, inputFilePath || this.inputFiles.sampleXlsx)
+  }
+
+  async convertSpreadsheetWithHiddenSheetsIncluded (inputFilePath = '') {
+    return convertSpreadsheetWithHiddenSheetsIncluded(this, inputFilePath || this.inputFiles.sampleXlsxWithHiddenSheet)
   }
 }
 
