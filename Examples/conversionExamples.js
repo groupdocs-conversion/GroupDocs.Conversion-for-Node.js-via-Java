@@ -12,6 +12,7 @@ const getSourceDocumentInfo = require('./BasicUsage/getSourceDocumenInfo')
 const setLicense = require('./QuickStart/setLicense')
 
 // Conversion Methods
+const convertToHtml = require('./BasicUsage/convertToHtml')
 const convertToPdf = require('./BasicUsage/convertToPdf')
 const convertToWordProcessing = require('./BasicUsage/convertToWordProcessing')
 const convertToSpreadsheet = require('./BasicUsage/convertToSpreadsheet')
@@ -20,8 +21,9 @@ const convertToPresentation = require('./BasicUsage/convertToPresentation')
 /* Conversion with advanced options */
 //    Converting
 const convertToPdfWithAdvancedOptions = require('./AdvancedUsage/converting/convertToPdfWithAdvancedOptions')
-const convertConsecutivePagesPdf = require('./AdvancedUsage/converting/convertNConsecutivePages');
-const convertSpecificPages = require('./AdvancedUsage/converting/convertSpecificPages')
+const convertConsecutivePagesPdf = require('./AdvancedUsage/converting/common/convertNConsecutivePages')
+const convertSpecificPages = require('./AdvancedUsage/converting/common/convertSpecificPages')
+const addWatermark = require('./AdvancedUsage/Converting/common/addWatermark')
 const convertToImageWithAdvancedOptions = require('./AdvancedUsage/converting/convertToImageWithAdvancedOptions')
 const convertToHtmlWithAdvancedOptions = require('./AdvancedUsage/converting/convertToHtmlWithAdvancedOptions')
 const convertToPresentationWithAdvancedOptions = require('./AdvancedUsage/converting/convertToPresentationWithAdvancedOptions')
@@ -95,6 +97,10 @@ class ConversionExamples {
     if (this.licensePath) return setLicense(this, licensePath || this.licensePath)
   }
 
+  async convertToHtml(inputFilePath = '') {
+    return convertToHtml(this, inputFilePath || this.inputFiles.sampleDocx)
+  }
+
   async convertToPdf(inputFilePath = '') {
     return convertToPdf(this, inputFilePath || this.inputFiles.sampleDocx)
   }
@@ -118,12 +124,16 @@ class ConversionExamples {
     )
   }
 
+  async addWatermark(inputFilePath = '') {
+    return addWatermark(this, inputFilePath || this.inputFiles.sampleDocx)
+  }
+
   async convertConsecutivePagesPdf(inputFilePath = '') {
-    return convertConsecutivePagesPdf(this, inputFilePath || this.inputFiles.samplePdf)
+    return convertConsecutivePagesPdf(this, inputFilePath || this.inputFiles.sampleDocx)
   }
 
   async convertSpecificPagesPdf(inputFilePath = '') {
-    return convertSpecificPages(this, inputFilePath || this.inputFiles.samplePdf)
+    return convertSpecificPages(this, inputFilePath || this.inputFiles.sampleDocx)
   }
 
   async convertToImageWithAdvancedOptions(inputFilePath = '') {

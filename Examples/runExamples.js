@@ -10,14 +10,16 @@ examples.getSourceDocumentInfo()
     await examples.setLicense() // You can pass the licensePath as an argument, it's optional
 
     await Promise.all([
-      // NOTE: Please uncomment the example you want to try out
+      /* NOTE: Please uncomment the example you want to try out */
       /* Basic usage */
+      // examples.convertToHtml(), // TODO: runs with exception
       // examples.convertToPdf(),
       // examples.convertToPresentation(),
       // examples.convertToSpreadsheet(),
       // examples.convertToWordProcessing(),
       /* Advanced usage */
         /* Converting */
+      // examples.addWatermark(), // // TODO: runs with exception
       // examples.convertConsecutivePagesPdf(),
       // examples.convertSpecificPagesPdf(),
       // examples.convertToPdfWithAdvancedOptions(),
@@ -25,19 +27,19 @@ examples.getSourceDocumentInfo()
       // examples.convertToHtmlWithAdvancedOptions(),
       // examples.convertToPresentationWithAdvancedOptions(),
       // examples.convertToSpreadsheetWithAdvancedOptions(),
-      // examples.convertToWordProcessingWithAdvancedOptions()
+      // examples.convertToWordProcessingWithAdvancedOptions(), // TODO: runs with exception
         /* LoadOptions */
           /* PDF */
       // examples.convertPdfAndFlattenAllFields(),
       // examples.convertPdfAndHideAnnotations(),
       // examples.convertPdfAndRemoveEmbeddedFiles(),
           /* Presentation */
-      // examples.convertPresentationByHiddingComments(),
+      // examples.convertPresentationByHidingComments(),
       // examples.convertPresentationBySpecifyingFontSubstitution(),
       // examples.convertPresentationWithHiddenSlidesIncluded(),
           /* WordProcessing */
-      // examples.convertWordProcessingByHiddingComments(),
-      // examples.convertWordProcessingByHiddingTrackedChanges(),
+      // examples.convertWordProcessingByHidingComments(),
+      // examples.convertWordProcessingByHidingTrackedChanges(),
       // examples.convertWordProcessingBySpecifyingFontSubstitution(),
           /* Spreadsheet */
       // examples.convertSpreadsheetAndHideComments(),
@@ -47,7 +49,7 @@ examples.getSourceDocumentInfo()
       // examples.convertSpreadsheetBySpecifyingRange(),
       // examples.convertSpreadsheetWithHiddenSheetsIncluded(),
           /* XML */
-      examples.convertXmlAsDataSourceToSpreadsheet(),
+      // examples.convertXmlAsDataSourceToSpreadsheet(),
     ])
     console.log('The end of process.')
     process.exit(0)
