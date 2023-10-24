@@ -1,7 +1,6 @@
 const fs = require('fs')
 
 const conversion = require('@groupdocs/groupdocs.conversion')
-// const ArrayList = conversion.Java.import('java.util.ArrayList');
 
 // Constant Variables 
 const Constants = require('./constants')
