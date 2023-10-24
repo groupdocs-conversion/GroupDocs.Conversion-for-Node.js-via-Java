@@ -14,4 +14,10 @@ module.exports = {
   SAMPLE_XLSX: SamplePath + '/sample.xlsx',
   SAMPLE_XLSX_WITH_HIDDEN_SHEET: SamplePath + '/with_hidden_sheet.xlsx',
   SAMPLE_DATASOURCE: SamplePath + '/sample_datasource.xml',
+  SAMPLE_DWG_WITH_LAYOUTS_AND_LAYERS: SamplePath + '/with_layers_and_layouts.dwg',
+  SAMPLE_CSV: SamplePath + '/sample.csv',
+  SAMPLE_MSG: SamplePath + '/sample.msg',
+  SAMPLE_ONE: SamplePath + '/sample.one',
+  SAMPLE_TXT: SamplePath + '/sample.txt',
+  SAMPLE_TXT_SHIFT_JS_ENCODED: SamplePath + '/shift_jis_encoded.txt',
 }

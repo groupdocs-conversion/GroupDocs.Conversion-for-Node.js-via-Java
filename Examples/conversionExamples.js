@@ -46,7 +46,18 @@ const convertSpreadsheetBySpecifyingFontsubstitution = require('./AdvancedUsage/
 const convertSpreadsheetBySpecifyingRange = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetBySpecifyingRange')
 const convertSpreadsheetWithHiddenSheetsIncluded = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Spreadsheet/convertSpreadsheetWithHiddenSheetsIncluded')
 const convertXmlAsDataSourceToSpreadsheet = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Xml/convertXmlAsDataSourceToSpreadsheet')
-
+const convertCadAndSpecifyLayouts = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Cad/convertCadAndSpecifyLayouts')
+const convertCadAndSpecifyWidthAndHeight = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Cad/convertCadAndSpecifyWidthAndHeight')
+const convertCsvByConvertingDateTimeAndNumericData = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Csv/convertCsvByConvertingDateTimeAndNumericData')
+const convertCsvBySpecifyingDelimiter = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Csv/convertCsvBySpecifyingDelimiter')
+const convertCsvBySpecifyingEncoding = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Csv/convertCsvBySpecifyingEncoding')
+const convertNoteBySpecifyingFontSubstitution = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Note/convertNoteBySpecifyingFontSubstitution')
+const convertEmailWithAlteringFieldsVisibility = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Email/convertEmailWithAlteringFieldsVisibility')
+const convertTxtByControllingLeadingSpacesBehavior = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Txt/convertTxtByControllingLeadingSpacesBehavior')
+const convertTxtByControllingTrailingSpacesBehavior = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Txt/convertTxtByControllingTrailingSpacesBehavior')
+const convertTxtBySpecifyingEncoding = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Txt/convertTxtBySpecifyingEncoding')
+// Loading from different sources
+const loadDocumentFromUrl = require('./AdvancedUsage/Loading/LoadOptionsFromDifferentSources/loadDocumentFromUrl')
 class ConversionExamples {
   constructor() {
     // Initialize the License
@@ -72,7 +83,13 @@ class ConversionExamples {
       sampleDocxWithTrackedChanges: Constants.SAMPLE_DOCX_WITH_TRACKED_CHANGES,
       sampleXlsx: Constants.SAMPLE_XLSX,
       sampleXlsxWithHiddenSheet: Constants.SAMPLE_XLSX_WITH_HIDDEN_SHEET,
-      sampleDataSource: Constants.SAMPLE_DATASOURCE
+      sampleDataSource: Constants.SAMPLE_DATASOURCE,
+      sampleDwgWithLayersAndLayouts: Constants.SAMPLE_DWG_WITH_LAYOUTS_AND_LAYERS,
+      sampleCsv: Constants.SAMPLE_CSV,
+      sampleMsg: Constants.SAMPLE_MSG,
+      sampleOne: Constants.SAMPLE_ONE,
+      sampleTxt: Constants.SAMPLE_TXT,
+      sampleTxtShiftJsEncoded: Constants.SAMPLE_TXT_SHIFT_JS_ENCODED,
     }
   }
 
@@ -218,6 +235,50 @@ class ConversionExamples {
 
   async convertXmlAsDataSourceToSpreadsheet (inputFilePath = '') {
     return convertXmlAsDataSourceToSpreadsheet(this, inputFilePath || this.inputFiles.sampleDataSource)
+  }
+
+  async convertCadAndSpecifyLayouts (inputFilePath = '') {
+    return convertCadAndSpecifyLayouts(this, inputFilePath || this.inputFiles.sampleDwgWithLayersAndLayouts)
+  }
+
+  async convertCadAndSpecifyWidthAndHeight (inputFilePath = '') {
+    return convertCadAndSpecifyWidthAndHeight(this, inputFilePath || this.inputFiles.sampleDwgWithLayersAndLayouts)
+  }
+
+  async convertCsvByConvertingDateTimeAndNumericData (inputFilePath = '') {
+    return convertCsvByConvertingDateTimeAndNumericData(this, inputFilePath || this.inputFiles.sampleCsv)
+  }
+
+  async convertCsvBySpecifyingDelimiter (inputFilePath = '') {
+    return convertCsvBySpecifyingDelimiter(this, inputFilePath || this.inputFiles.sampleCsv)
+  }
+
+  async convertCsvBySpecifyingEncoding (inputFilePath = '') {
+    return convertCsvBySpecifyingEncoding(this, inputFilePath || this.inputFiles.sampleCsv)
+  }
+
+  async convertNoteBySpecifyingFontSubstitution (inputFilePath = '') {
+    return convertNoteBySpecifyingFontSubstitution(this, inputFilePath || this.inputFiles.sampleOne)
+  }
+
+  async convertEmailWithAlteringFieldsVisibility (inputFilePath = '') {
+    return convertEmailWithAlteringFieldsVisibility(this, inputFilePath || this.inputFiles.sampleMsg)
+  }
+  
+  async convertTxtByControllingLeadingSpacesBehavior (inputFilePath = '') {
+    return convertTxtByControllingLeadingSpacesBehavior(this, inputFilePath || this.inputFiles.sampleTxt)
+  }
+
+  async convertTxtByControllingTrailingSpacesBehavior (inputFilePath = '') {
+    return convertTxtByControllingTrailingSpacesBehavior(this, inputFilePath || this.inputFiles.sampleTxt)
+  }
+
+  async convertTxtBySpecifyingEncoding (inputFilePath = '') {
+    return convertTxtBySpecifyingEncoding(this, inputFilePath || this.inputFiles.sampleTxtShiftJsEncoded)
+  }
+
+  async loadDocumentFromUrl () {
+    return loadDocumentFromUrl(this)
   }
 }
 

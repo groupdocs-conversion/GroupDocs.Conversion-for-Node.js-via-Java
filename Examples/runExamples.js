@@ -13,13 +13,13 @@ examples.getSourceDocumentInfo()
       /* NOTE: Please uncomment the example you want to try out */
       /* Basic usage */
       // examples.convertToHtml(), // TODO: runs with exception
-      // examples.convertToPdf(),
+      // examples.convertToPdf(),  // TODO: runs with exception
       // examples.convertToPresentation(),
       // examples.convertToSpreadsheet(),
       // examples.convertToWordProcessing(),
       /* Advanced usage */
         /* Converting */
-      // examples.addWatermark(), // // TODO: runs with exception
+      // examples.addWatermark(), // TODO: runs with exception
       // examples.convertConsecutivePagesPdf(),
       // examples.convertSpecificPagesPdf(),
       // examples.convertToPdfWithAdvancedOptions(),
@@ -50,6 +50,23 @@ examples.getSourceDocumentInfo()
       // examples.convertSpreadsheetWithHiddenSheetsIncluded(),
           /* XML */
       // examples.convertXmlAsDataSourceToSpreadsheet(),
+          /* CAD */
+      // examples.convertCadAndSpecifyLayouts(),
+      // examples.convertCadAndSpecifyWidthAndHeight(),
+          /* CSV */
+      // examples.convertCsvByConvertingDateTimeAndNumericData(),
+      // examples.convertCsvBySpecifyingDelimiter(),
+      // examples.convertCsvBySpecifyingEncoding(), // TODO: charset exception
+          /* Email */
+      // examples.convertEmailWithAlteringFieldsVisibility(),
+          /* Note */
+      // examples.convertNoteBySpecifyingFontSubstitution(),
+          /* TXT */
+      // examples.convertTxtByControllingLeadingSpacesBehavior(),
+      // examples.convertTxtByControllingTrailingSpacesBehavior(),
+      // examples.convertTxtBySpecifyingEncoding(), // TODO: charset exception
+          /* Load From Different Sources */
+      // examples.loadDocumentFromUrl(), // TODO: runs with exception
     ])
     console.log('The end of process.')
     process.exit(0)
