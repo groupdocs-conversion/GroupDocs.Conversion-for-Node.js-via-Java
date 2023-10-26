@@ -1,10 +1,9 @@
-const java = require('java')
 /**
  * This example demonstrates how to convert a csv document to pdf with advanced options
  */
 async function convertCsvBySpecifyingDelimiter(groupdocs, inputFilePath) {
   const loadOptions = new groupdocs.conversion.CsvLoadOptions()
-  loadOptions.setSeparator(java.newChar(','))
+  loadOptions.setSeparator(",")
 
   const outputPath = `${groupdocs.outputFolder}/ConvertCsvBySpecifyingDelimiter.pdf`
   
