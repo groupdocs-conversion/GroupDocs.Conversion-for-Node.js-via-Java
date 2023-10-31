@@ -2,7 +2,7 @@ const path = require('path')
 const SamplePath = path.join(__dirname, './Resources/SampleFiles')
 
 module.exports = {
-  LicensePath: 'D:/GROUPDOCS/gitlab-saltov/management/licenses/Licenses/Conholdate/Total/Subscription/Valid/Conholdate.Total.Product.Family.lic',
+  LicensePath: '/Users/anonymous1/Desktop/projects/GroupDocs_Files/GroupDocs.Conversion.Node.JsViaJava.lic',
   SamplePath,
   OutputPath: path.join(__dirname, 'Output'),
   SAMPLE_DOCX: SamplePath + '/sample.docx',

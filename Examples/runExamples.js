@@ -27,7 +27,7 @@ examples.getSourceDocumentInfo()
       examples.convertToHtmlWithAdvancedOptions(),
       examples.convertToPresentationWithAdvancedOptions(),
       examples.convertToSpreadsheetWithAdvancedOptions(),
-      //examples.convertToWordProcessingWithAdvancedOptions(), // TODO: runs with exception
+      examples.convertToWordProcessingWithAdvancedOptions(),
         /* LoadOptions */
           /* PDF */
       examples.convertPdfAndFlattenAllFields(),
@@ -66,7 +66,8 @@ examples.getSourceDocumentInfo()
       examples.convertTxtByControllingTrailingSpacesBehavior(),
       //examples.convertTxtBySpecifyingEncoding(), // TODO: charset exception
           /* Load From Different Sources */
-      //examples.loadDocumentFromUrl(), // TODO: runs with exception
+      examples.loadDocumentFromUrl(),
+      examples.loadDocumentFromStream(),
     ])
     console.log('The end of process.')
     process.exit(0)

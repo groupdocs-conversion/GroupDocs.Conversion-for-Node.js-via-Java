@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java#readme",
   "dependencies": {
-    "@groupdocs/groupdocs.conversion": "^23.7.1"
+    "@groupdocs/groupdocs.conversion": "^23.10.0"
   }
 }

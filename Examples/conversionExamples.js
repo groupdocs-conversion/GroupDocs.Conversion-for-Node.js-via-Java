@@ -57,6 +57,7 @@ const convertTxtByControllingTrailingSpacesBehavior = require('./AdvancedUsage/L
 const convertTxtBySpecifyingEncoding = require('./AdvancedUsage/Loading/LoadOptionsByDocumentType/Txt/convertTxtBySpecifyingEncoding')
 // Loading from different sources
 const loadDocumentFromUrl = require('./AdvancedUsage/Loading/LoadOptionsFromDifferentSources/loadDocumentFromUrl')
+const loadDocumentFromStream = require('./AdvancedUsage/Loading/LoadOptionsFromDifferentSources/loadDocumentFromStream')
 class ConversionExamples {
   constructor() {
     // Initialize the License
@@ -278,6 +279,10 @@ class ConversionExamples {
 
   async loadDocumentFromUrl () {
     return loadDocumentFromUrl(this)
+  }
+
+  async loadDocumentFromStream (inputFilePath = '') {
+    return loadDocumentFromStream(this, inputFilePath || this.inputFiles.sampleDocx)
   }
 }
 

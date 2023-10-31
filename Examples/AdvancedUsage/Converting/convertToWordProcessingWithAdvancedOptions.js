@@ -2,10 +2,7 @@
  * This example demonstrates how to convert a pdf document to wordprocessing document and specifying pages to be converted
  */
 async function  convertToWordProcessingWithAdvancedOptions(groupdocs, inputFilePath) {
-  const loadOptions = new groupdocs.conversion.WordProcessingLoadOptions()
-  loadOptions.setPassword('12345')
-
-  const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
+  const converter = new groupdocs.conversion.Converter(inputFilePath)
 
   const outputPath = `${groupdocs.outputFolder}/ConvertToWordProcessingWithAdvancedOptions.docx`
   const convertOptions = new groupdocs.conversion.WordProcessingConvertOptions()
