@@ -7,7 +7,7 @@ const fs = require('fs')
  * https://docs.groupdocs.com/conversion
  */
 async function convertToImagePng(groupdocs, inputFilePath, outputFolder) {
-  const outputFileTemplate = `${outputFolder}/converted-page-%d.png`
+  const outputFileTemplate = `${outputFolder}/Converted-page-%d.png`
 
   const getPageStream = fs.createWriteStream(util.format(outputFileTemplate, 1))
   const converter = new groupdocs.conversion.Converter(inputFilePath)
