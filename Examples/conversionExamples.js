@@ -61,12 +61,16 @@ const loadDocumentFromStream = require('./AdvancedUsage/Loading/LoadOptionsFromD
 class ConversionExamples {
   constructor() {
     // Initialize the License
-    let lic = Constants.LicensePath
+    let lic = Constants.LICENSE_PATH
     if (!lic || !lic.endsWith('.lic')) console.log('License is not found, continuing with demo version!')
     else this.licensePath = lic
 
     // Initialize the model
-    this.conversion = conversion
+    console.log({
+      MODULE_PATH: Constants.MODULE_PATH,
+      TEST_MODE: Constants.TEST_MODE
+    })
+    this.conversion = Constants.TEST_MODE ? require(Constants.MODULE_PATH) : conversion
 
     // Initialize files
     this.initializeInputFiles()
@@ -94,7 +98,7 @@ class ConversionExamples {
   }
 
   initializeOutputFolder() {
-    this.outputFolder = Constants.OutputPath
+    this.outputFolder = Constants.OUTPUT_PATH
     try {
       if (!fs.existsSync(this.outputFolder)) fs.mkdirSync(this.outputFolder)
     } catch (error) {
