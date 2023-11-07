@@ -3,8 +3,6 @@ const SAMPLE_PATH = path.join(__dirname, './Resources/SampleFiles')
 require('dotenv').config()
 
 module.exports = {
-  TEST_MODE: process.env.TEST_MODE || false,
-  MODULE_PATH: process.env.MODULE_PATH ? path.join(__dirname, process.env.MODULE_PATH) : '',
   LICENSE_PATH: process.env.LICENSE_PATH || '',
   SAMPLE_PATH,
   OUTPUT_PATH: path.join(__dirname, 'Output'),
