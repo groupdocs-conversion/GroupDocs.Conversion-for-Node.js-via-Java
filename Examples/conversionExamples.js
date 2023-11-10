@@ -1,5 +1,7 @@
 const fs = require('fs')
 
+const conversion = require('@groupdocs/groupdocs.conversion')
+
 // Constant Variables 
 const Constants = require('./constants')
 
@@ -57,14 +59,18 @@ const convertTxtBySpecifyingEncoding = require('./AdvancedUsage/Loading/LoadOpti
 const loadDocumentFromUrl = require('./AdvancedUsage/Loading/LoadOptionsFromDifferentSources/loadDocumentFromUrl')
 const loadDocumentFromStream = require('./AdvancedUsage/Loading/LoadOptionsFromDifferentSources/loadDocumentFromStream')
 class ConversionExamples {
-  constructor (conversion) {
+  constructor() {
     // Initialize the License
     let lic = Constants.LICENSE_PATH
     if (!lic || !lic.endsWith('.lic')) console.log('License is not found, continuing with demo version!')
     else this.licensePath = lic
 
     // Initialize the model
-    this.conversion = conversion
+    console.log({
+      MODULE_PATH: Constants.MODULE_PATH,
+      TEST_MODE: Constants.TEST_MODE
+    })
+    this.conversion = Constants.TEST_MODE ? require(Constants.MODULE_PATH) : conversion
 
     // Initialize files
     this.initializeInputFiles()
@@ -284,5 +290,4 @@ class ConversionExamples {
   }
 }
 
-module.exports = (conversion) => new ConversionExamples(conversion)
-module.exports.ConversionExamples = ConversionExamples
+module.exports = new ConversionExamples()
