@@ -1,4 +1,4 @@
-const examples = require('./Examples/conversionExamples')
+const examples = require('./conversionExamples')
 
 // CALL EXAMPLES
 examples.getPossibleConversions()
