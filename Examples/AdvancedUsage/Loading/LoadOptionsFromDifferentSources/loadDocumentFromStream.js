@@ -1,5 +1,4 @@
-const java = require('java')
-const FileInputStream = java.import('java.io.FileInputStream');
+const fs = require("fs");
 
 /**
  * This example demonstrates how to convert document from stream.
@@ -8,7 +7,8 @@ async function loadDocumentFromStream (groupdocs, inputFilePath) {
   const outputPath = `${groupdocs.outputFolder}/LoadDocumentFromStream.pdf`
 
   try {
-    const stream = new FileInputStream(inputFilePath)
+    const readStream = fs.createReadStream(inputFilePath)
+    const stream = await groupdocs.conversion.readDataFromStream(readStream)
     const converter = new groupdocs.conversion.Converter(stream);
     const convertOptions = new groupdocs.conversion.PdfConvertOptions()
 
