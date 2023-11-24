@@ -8,7 +8,8 @@ const Constants = require('./constants')
 // Basic Methods
 const getPossibleConversions = require('./BasicUsage/getPossibleConversions')
 const getSourceDocumentInfo = require('./BasicUsage/getSourceDocumenInfo')
-const setLicense = require('./QuickStart/setLicense')
+const setLicenseFromFile = require('./QuickStart/setLicenseFromFile')
+const setLicenseFromStream = require('./QuickStart/setLicenseFromStream')
 
 // Conversion Methods
 const convertToHtml = require('./BasicUsage/convertToHtml')
@@ -58,6 +59,7 @@ const convertTxtBySpecifyingEncoding = require('./AdvancedUsage/Loading/LoadOpti
 // Loading from different sources
 const loadDocumentFromUrl = require('./AdvancedUsage/Loading/LoadOptionsFromDifferentSources/loadDocumentFromUrl')
 const loadDocumentFromStream = require('./AdvancedUsage/Loading/LoadOptionsFromDifferentSources/loadDocumentFromStream')
+const loadDocumentFromLocalDisk = require('./AdvancedUsage/Loading/LoadOptionsFromDifferentSources/loadDocumentFromLocalDisk')
 class ConversionExamples {
   constructor() {
     // Initialize the License
@@ -110,8 +112,12 @@ class ConversionExamples {
     return getSourceDocumentInfo(this, inputFilePath || this.inputFiles.samplePdf)
   }
 
-  async setLicense(licensePath = '') {
-    if (this.licensePath) return setLicense(this, licensePath || this.licensePath)
+  async setLicenseFromFile(licensePath = '') {
+    return setLicenseFromFile(this, licensePath || this.licensePath)
+  }
+
+  async setLicenseFromStream(licensePath = '') {
+    return setLicenseFromStream(this, licensePath || this.licensePath)
   }
 
   async convertToHtml(inputFilePath = '') {
@@ -283,6 +289,10 @@ class ConversionExamples {
 
   async loadDocumentFromStream (inputFilePath = '') {
     return loadDocumentFromStream(this, inputFilePath || this.inputFiles.sampleDocx)
+  }
+
+  async loadDocumentFromLocalDisk(inputFilePath = '') {
+    return loadDocumentFromLocalDisk(this, inputFilePath || this.inputFiles.sampleDocx)
   }
 }
 

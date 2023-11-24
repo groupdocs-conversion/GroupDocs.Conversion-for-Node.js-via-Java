@@ -7,8 +7,9 @@ examples.getSourceDocumentInfo()
 ;(async () => {
   try {
     console.log('Start conversion. \nIn Main() method uncomment the example that you want to run.')
-    await examples.setLicense() // You can pass the licensePath as an argument, it's optional
-
+    // await examples.setLicenseFromFile() // You can pass the licensePath as an argument, it's optional
+    await examples.setLicenseFromStream()
+    
     await Promise.all([
       /* NOTE: Please uncomment the example you want to try out */
       /* Basic usage */
@@ -68,6 +69,7 @@ examples.getSourceDocumentInfo()
           /* Load From Different Sources */
       examples.loadDocumentFromUrl(),
       examples.loadDocumentFromStream(),
+      examples.loadDocumentFromLocalDisk(),
     ])
     console.log('The end of process.')
     process.exit(0)
