@@ -53,7 +53,7 @@ examples.getSourceDocumentInfo()
       examples.convertXmlAsDataSourceToSpreadsheet(),
           /* CAD */
      // examples.convertCadAndSpecifyLayouts(), // TODO
-      examples.convertCadAndSpecifyWidthAndHeight(),
+      // examples.convertCadAndSpecifyWidthAndHeight(),
           /* CSV */
       examples.convertCsvByConvertingDateTimeAndNumericData(),
       examples.convertCsvBySpecifyingDelimiter(),
