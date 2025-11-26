@@ -1,18 +1,30 @@
+const path = require('path');
+
 /**
- * This example demonstrates how to convert a spreadsheet document to pdf with advanced options
+ * This example demonstrates how to convert a spreadsheet to PDF while hiding comments.
+ *
+ * @param {Object} groupdocs - The GroupDocs.Conversion library instance
+ * @param {string} inputFilePath - Path to the input spreadsheet file
+ * @param {string} outputFolder - Path to the output folder
+ * @returns {Promise} Promise that resolves when conversion is complete
  */
-async function convertSpreadsheetAndHideComments(groupdocs, inputFilePath) {
-  const loadOptions = new groupdocs.conversion.SpreadsheetLoadOptions()
-  loadOptions.setHideComments(true);
-  loadOptions.setOnePagePerSheet(true);
+async function convertSpreadsheetAndHideComments(groupdocs, inputFilePath, outputFolder) {
+  // Configure Spreadsheet load options
+  const loadOptions = new groupdocs.SpreadsheetLoadOptions();
+  loadOptions.setHideComments(true); // Hide comments in the output
+  loadOptions.setOnePagePerSheet(true); // Render each sheet on a separate page
 
-  const outputPath = `${groupdocs.outputFolder}/ConvertSpreadsheetAndHideComments.pdf`
-  
-  const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
-  const convertOptions = new groupdocs.conversion.PdfConvertOptions()
+  // Set output file path
+  const outputPath = `${outputFolder}/ConvertSpreadsheetAndHideComments.pdf`;
 
-  console.log(`Spreadsheet document converted successfully to ${outputPath} (hide comments)`)
-  return converter.convert(outputPath, convertOptions)
+  // Initialize converter with input file and load options
+  const converter = new groupdocs.Converter(inputFilePath, loadOptions);
+
+  // Configure PDF conversion options
+  const convertOptions = new groupdocs.PdfConvertOptions();
+
+  console.log(`\n✓ Spreadsheet Hide Comments: ${path.basename(outputPath)}`);
+  return converter.convert(outputPath, convertOptions);
 }
 
-module.exports = convertSpreadsheetAndHideComments
+module.exports = convertSpreadsheetAndHideComments;

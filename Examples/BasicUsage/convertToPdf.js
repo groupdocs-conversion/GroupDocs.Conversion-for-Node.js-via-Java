@@ -1,15 +1,28 @@
-/**
- * This example demonstrates how to convert DOCX file into PDF format.
- * For more details about Microsoft Word Open XML Document (.docx) to Portable Document (.pdf) conversion please check this documentation article 
- * https://docs.groupdocs.com/conversion
- */
-async function convertToPdf(groupdocs, inputFilePath) {
-  const converter = new groupdocs.conversion.Converter(inputFilePath)
-  const convertOptions = new groupdocs.conversion.PdfConvertOptions()
-  const outputPath = `${groupdocs.outputFolder}/ConvertToPdf.pdf`
+const path = require('path');
 
-  console.log(`Converted to ${outputPath}`)
-  return converter.convert(outputPath, convertOptions)
+/**
+ * This example demonstrates how to convert a DOCX file to PDF format.
+ *
+ * For more details about Microsoft Word Open XML Document (.docx) to Portable Document (.pdf)
+ * conversion, please check: https://docs.groupdocs.com/conversion
+ *
+ * @param {Object} groupdocs - The GroupDocs.Conversion library instance
+ * @param {string} inputFilePath - Path to the input DOCX file
+ * @param {string} outputFolder - Path to the output folder
+ * @returns {Promise} Promise that resolves when conversion is complete
+ */
+async function convertToPdf(groupdocs, inputFilePath, outputFolder) {
+  // Initialize converter with input file
+  const converter = new groupdocs.Converter(inputFilePath);
+
+  // Configure PDF conversion options
+  const convertOptions = new groupdocs.PdfConvertOptions();
+
+  // Set output file path
+  const outputPath = `${outputFolder}/ConvertToPdf.pdf`;
+
+  console.log(`\n✓ Convert to PDF: ${path.basename(outputPath)}`);
+  return converter.convert(outputPath, convertOptions);
 }
 
-module.exports = convertToPdf
+module.exports = convertToPdf;

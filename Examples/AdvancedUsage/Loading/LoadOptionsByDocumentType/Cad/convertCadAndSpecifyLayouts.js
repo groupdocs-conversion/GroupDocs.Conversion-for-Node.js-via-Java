@@ -1,18 +1,31 @@
+const path = require('path');
+
 /**
- * This example demonstrates how to convert a cad document to pdf with advanced options
+ * This example demonstrates how to convert a CAD document to PDF with specific layout selection.
+ *
+ * CAD files can contain multiple layouts. This example converts only selected layouts.
+ *
+ * @param {Object} groupdocs - The GroupDocs.Conversion library instance
+ * @param {string} inputFilePath - Path to the input CAD file
+ * @param {string} outputFolder - Path to the output folder
+ * @returns {Promise} Promise that resolves when conversion is complete
  */
-async function convertCadAndSpecifyLayouts(groupdocs, inputFilePath) {
+async function convertCadAndSpecifyLayouts(groupdocs, inputFilePath, outputFolder) {
+  // Set output file path
+  const outputPath = `${outputFolder}/ConvertCadAndSpecifyLayouts.pdf`;
 
-  const outputPath = `${groupdocs.outputFolder}/ConvertCadAndSpecifyLayouts.pdf`
-  
-  const loadOptions = new groupdocs.conversion.CadLoadOptions()
+  // Configure CAD load options
+  const loadOptions = new groupdocs.CadLoadOptions();
+  loadOptions.setLayoutNames(['Layout1', 'Layout3']); // Specify which layouts to convert
 
-  loadOptions.setLayoutNames(["Layout1", "Layout3"]);
-  const converter = new groupdocs.conversion.Converter(inputFilePath, () => loadOptions);
+  // Initialize converter with input file and load options (using callback for CAD)
+  const converter = new groupdocs.Converter(inputFilePath, () => loadOptions);
 
-  const convertOptions = new groupdocs.conversion.PdfConvertOptions()
-  console.log(`Cad document converted successfully to ${outputPath} (cad & specify layouts)`)
-  return converter.convert(outputPath, convertOptions)
+  // Configure PDF conversion options
+  const convertOptions = new groupdocs.PdfConvertOptions();
+
+  console.log(`\n✓ CAD Specify Layouts: ${path.basename(outputPath)}`);
+  return converter.convert(outputPath, convertOptions);
 }
 
-module.exports = convertCadAndSpecifyLayouts
+module.exports = convertCadAndSpecifyLayouts;

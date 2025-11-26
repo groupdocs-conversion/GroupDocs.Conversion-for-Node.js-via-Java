@@ -1,23 +1,38 @@
-const java = require('java') 
+const java = require('java');
+const path = require('path');
+
 /**
- * This example demonstrates how to convert a presentation document to pdf with advanced options
+ * This example demonstrates how to convert a presentation to PDF with custom font substitution.
+ *
+ * Font substitution allows replacing unavailable fonts with specified alternatives.
+ *
+ * @param {Object} groupdocs - The GroupDocs.Conversion library instance
+ * @param {string} inputFilePath - Path to the input presentation file
+ * @param {string} outputFolder - Path to the output folder
+ * @returns {Promise} Promise that resolves when conversion is complete
  */
-async function convertPresentationBySpecifyingFontSubstitution(groupdocs, inputFilePath) {
-  const outputPath = `${groupdocs.outputFolder}/ConvertPresentationBySpecifyingFontSubstitution.pdf`
+async function convertPresentationBySpecifyingFontSubstitution(groupdocs, inputFilePath, outputFolder) {
+  // Set output file path
+  const outputPath = `${outputFolder}/ConvertPresentationBySpecifyingFontSubstitution.pdf`;
 
-  const fontSubstitutes = java.newInstanceSync("java.util.ArrayList")
-  fontSubstitutes.add(groupdocs.conversion.FontSubstitute.create("Tahoma", "Arial"));
-  fontSubstitutes.add(groupdocs.conversion.FontSubstitute.create("Times New Roman", "Arial"));
+  // Create font substitution list
+  const fontSubstitutes = java.newInstanceSync('java.util.ArrayList');
+  fontSubstitutes.add(groupdocs.FontSubstitute.create('Tahoma', 'Arial'));
+  fontSubstitutes.add(groupdocs.FontSubstitute.create('Times New Roman', 'Arial'));
 
-  const loadOptions = new groupdocs.conversion.PresentationLoadOptions()
-  loadOptions.setDefaultFont("Helvetica.ttf");
-  loadOptions.setFontSubstitutes(fontSubstitutes);
+  // Configure Presentation load options
+  const loadOptions = new groupdocs.PresentationLoadOptions();
+  loadOptions.setDefaultFont('Helvetica.ttf'); // Set default font
+  loadOptions.setFontSubstitutes(fontSubstitutes); // Apply custom font substitutions
 
-  const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
-  const convertOptions = new groupdocs.conversion.PdfConvertOptions()
+  // Initialize converter with input file and load options
+  const converter = new groupdocs.Converter(inputFilePath, loadOptions);
 
-  console.log(`Presentation document converted successfully to ${outputPath} (by specifying font subs)`)
-  return converter.convert(outputPath, convertOptions)
+  // Configure PDF conversion options
+  const convertOptions = new groupdocs.PdfConvertOptions();
+
+  console.log(`\n✓ Presentation Font Substitution: ${path.basename(outputPath)}`);
+  return converter.convert(outputPath, convertOptions);
 }
 
-module.exports = convertPresentationBySpecifyingFontSubstitution
+module.exports = convertPresentationBySpecifyingFontSubstitution;

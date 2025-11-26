@@ -1,22 +1,16 @@
 {
   "name": "groupdocs.conversion-for-node.js-via-java",
-  "version": "24.9.0",
-  "description": "GroupDocs.Conversion for Node.js via Java examples, plugins and showcase projects",
+  "version": "25.11.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node Examples/runExamples.js",
+    "lint": "eslint Examples/**/*.js",
+    "lint:fix": "eslint Examples/**/*.js --fix"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java/issues"
-  },
-  "homepage": "https://github.com/groupdocs-conversion/GroupDocs.Conversion-for-Node.js-via-Java#readme",
   "dependencies": {
-    "@groupdocs/groupdocs.conversion": "24.9.0",
-    "dotenv": "^16.3.1"
+    "@groupdocs/groupdocs.conversion": "^25.11.0",
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
   }
 }

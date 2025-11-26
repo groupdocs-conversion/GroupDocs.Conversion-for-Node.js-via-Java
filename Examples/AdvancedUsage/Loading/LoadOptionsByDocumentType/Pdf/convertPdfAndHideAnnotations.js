@@ -1,18 +1,31 @@
+const path = require('path');
+
 /**
- * This example demonstrates how to convert a pdf document to wordprocessing with advanced options
+ * This example demonstrates how to convert a PDF document to DOCX while hiding annotations.
+ *
+ * Hiding annotations removes comments, notes, and other annotation elements from the output.
+ *
+ * @param {Object} groupdocs - The GroupDocs.Conversion library instance
+ * @param {string} inputFilePath - Path to the input PDF file
+ * @param {string} outputFolder - Path to the output folder
+ * @returns {Promise} Promise that resolves when conversion is complete
  */
-async function convertPdfAndHideAnnotations(groupdocs, inputFilePath) {
-  const loadOptions = new groupdocs.conversion.PdfLoadOptions()
-  loadOptions.setHidePdfAnnotations(true)
+async function convertPdfAndHideAnnotations(groupdocs, inputFilePath, outputFolder) {
+  // Configure PDF load options
+  const loadOptions = new groupdocs.PdfLoadOptions();
+  loadOptions.setHidePdfAnnotations(true); // Hide all PDF annotations
 
-  const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
+  // Initialize converter with input file and load options
+  const converter = new groupdocs.Converter(inputFilePath, loadOptions);
 
-  const outputPath = `${groupdocs.outputFolder}/ConvertPdfAndHideAnnotations.docx`
-  
-  const convertOptions = new groupdocs.conversion.WordProcessingConvertOptions()
+  // Set output file path
+  const outputPath = `${outputFolder}/ConvertPdfAndHideAnnotations.docx`;
 
-  console.log(`Pdf document converted successfully to ${outputPath} (pdf & hide annotations)`)
-  return converter.convert(outputPath, convertOptions)
+  // Configure Word Processing conversion options
+  const convertOptions = new groupdocs.WordProcessingConvertOptions();
+
+  console.log(`\n✓ PDF Hide Annotations: ${path.basename(outputPath)}`);
+  return converter.convert(outputPath, convertOptions);
 }
 
-module.exports = convertPdfAndHideAnnotations
+module.exports = convertPdfAndHideAnnotations;

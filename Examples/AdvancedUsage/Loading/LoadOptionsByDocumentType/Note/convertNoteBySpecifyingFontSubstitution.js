@@ -1,22 +1,37 @@
-const java = require('java')
+const java = require('java');
+const path = require('path');
+
 /**
- * This example demonstrates how to convert a note document to pdf with advanced options
+ * This example demonstrates how to convert a OneNote document to PDF with custom font substitution.
+ *
+ * Font substitution allows replacing unavailable fonts with specified alternatives.
+ *
+ * @param {Object} groupdocs - The GroupDocs.Conversion library instance
+ * @param {string} inputFilePath - Path to the input OneNote file
+ * @param {string} outputFolder - Path to the output folder
+ * @returns {Promise} Promise that resolves when conversion is complete
  */
-async function convertNoteBySpecifyingFontSubstitution(groupdocs, inputFilePath) {
-  const outputPath = `${groupdocs.outputFolder}/convertNoteBySpecifyingFontSubstitution.pdf`
+async function convertNoteBySpecifyingFontSubstitution(groupdocs, inputFilePath, outputFolder) {
+  // Set output file path
+  const outputPath = `${outputFolder}/convertNoteBySpecifyingFontSubstitution.pdf`;
 
-  const fontSubstitutes = java.newInstanceSync("java.util.ArrayList")
-  fontSubstitutes.add(groupdocs.conversion.FontSubstitute.create("Tahoma", "Arial"));
-  fontSubstitutes.add(groupdocs.conversion.FontSubstitute.create("Times New Roman", "Arial"));
+  // Create font substitution list
+  const fontSubstitutes = java.newInstanceSync('java.util.ArrayList');
+  fontSubstitutes.add(groupdocs.FontSubstitute.create('Tahoma', 'Arial'));
+  fontSubstitutes.add(groupdocs.FontSubstitute.create('Times New Roman', 'Arial'));
 
-  const loadOptions = new groupdocs.conversion.NoteLoadOptions();
-  loadOptions.setFontSubstitutes(fontSubstitutes);
-  
-  const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
-  const convertOptions = new groupdocs.conversion.PdfConvertOptions()
+  // Configure Note load options
+  const loadOptions = new groupdocs.NoteLoadOptions();
+  loadOptions.setFontSubstitutes(fontSubstitutes); // Apply custom font substitutions
 
-  console.log(`Note document converted successfully to ${outputPath} (specifying font subs)`)
-  return converter.convert(outputPath, convertOptions)
+  // Initialize converter with input file and load options
+  const converter = new groupdocs.Converter(inputFilePath, loadOptions);
+
+  // Configure PDF conversion options
+  const convertOptions = new groupdocs.PdfConvertOptions();
+
+  console.log(`\n✓ OneNote Font Substitution: ${path.basename(outputPath)}`);
+  return converter.convert(outputPath, convertOptions);
 }
 
-module.exports = convertNoteBySpecifyingFontSubstitution
+module.exports = convertNoteBySpecifyingFontSubstitution;

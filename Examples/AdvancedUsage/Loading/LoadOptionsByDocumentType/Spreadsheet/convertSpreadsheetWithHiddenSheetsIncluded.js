@@ -1,18 +1,32 @@
+const path = require('path');
+
 /**
- * This example demonstrates how to convert a spreadsheet document to pdf with advanced options
+ * This example demonstrates how to convert a spreadsheet to PDF including hidden sheets.
+ *
+ * By default, hidden sheets are excluded from conversion. This option includes them.
+ *
+ * @param {Object} groupdocs - The GroupDocs.Conversion library instance
+ * @param {string} inputFilePath - Path to the input spreadsheet file
+ * @param {string} outputFolder - Path to the output folder
+ * @returns {Promise} Promise that resolves when conversion is complete
  */
-async function convertSpreadsheetWithHiddenSheetsIncluded(groupdocs, inputFilePath) {
-  const loadOptions = new groupdocs.conversion.SpreadsheetLoadOptions()
-  loadOptions.setShowHiddenSheets(true);
-  loadOptions.setOnePagePerSheet(true);
+async function convertSpreadsheetWithHiddenSheetsIncluded(groupdocs, inputFilePath, outputFolder) {
+  // Configure Spreadsheet load options
+  const loadOptions = new groupdocs.SpreadsheetLoadOptions();
+  loadOptions.setShowHiddenSheets(true); // Include hidden sheets in conversion
+  loadOptions.setOnePagePerSheet(true); // Render each sheet on a separate page
 
-  const outputPath = `${groupdocs.outputFolder}/ConvertSpreadsheetWithHiddenSheetsIncluded.pdf`
-  
-  const converter = new groupdocs.conversion.Converter(inputFilePath, loadOptions)
-  const convertOptions = new groupdocs.conversion.PdfConvertOptions()
+  // Set output file path
+  const outputPath = `${outputFolder}/ConvertSpreadsheetWithHiddenSheetsIncluded.pdf`;
 
-  console.log(`Spreadsheet document converted successfully to ${outputPath} (with hidden sheets included)`)
-  return converter.convert(outputPath, convertOptions)
+  // Initialize converter with input file and load options
+  const converter = new groupdocs.Converter(inputFilePath, loadOptions);
+
+  // Configure PDF conversion options
+  const convertOptions = new groupdocs.PdfConvertOptions();
+
+  console.log(`\n✓ Spreadsheet Include Hidden Sheets: ${path.basename(outputPath)}`);
+  return converter.convert(outputPath, convertOptions);
 }
 
-module.exports = convertSpreadsheetWithHiddenSheetsIncluded
+module.exports = convertSpreadsheetWithHiddenSheetsIncluded;

@@ -1,21 +1,30 @@
+const path = require('path');
+
 /**
- * This example demonstrates how to get basic information about source document.
+ * This example demonstrates how to get basic information about a source document.
+ *
+ * @param {Object} groupdocs - The GroupDocs.Conversion library instance
+ * @param {string} inputFilePath - Path to the input document file
  */
 function getSourceDocumentInfo(groupdocs, inputFilePath) {
-  const converter = new groupdocs.conversion.Converter(inputFilePath)
-  const pdfInfo = converter.getDocumentInfo()
+  // Initialize converter with input file
+  const converter = new groupdocs.Converter(inputFilePath);
 
-  console.log(`Author: ${pdfInfo.getAuthor()}`)
-  console.log(`Creation date: ${pdfInfo.getCreationDate()}`)
-  console.log(`Title: ${pdfInfo.getTitle()}`)
-  console.log(`Version: ${pdfInfo.getVersion()}`)
-  console.log(`Pages count: ${pdfInfo.getPagesCount()}`)
-  console.log(`Width: ${pdfInfo.getWidth()}`)
-  console.log(`Height: ${pdfInfo.getHeight()}`)
-  console.log(`Is landscaped: ${pdfInfo.isLandscape()}`)
-  console.log(`Is Encrypted: ${pdfInfo.isPasswordProtected()}`)
+  // Get document information
+  const documentInfo = converter.getDocumentInfo();
 
-  console.log('\nDocument info retrieved successfully.')
+  console.log(`\n✓ Document info for ${path.basename(inputFilePath)}:`);
+
+  // Display document metadata
+  console.log(` * Author: ${documentInfo.getAuthor()}`);
+  console.log(` * Creation date: ${documentInfo.getCreationDate()}`);
+  console.log(` * Title: ${documentInfo.getTitle()}`);
+  console.log(` * Version: ${documentInfo.getVersion()}`);
+  console.log(` * Pages count: ${documentInfo.getPagesCount()}`);
+  console.log(` * Width: ${documentInfo.getWidth()}`);
+  console.log(` * Height: ${documentInfo.getHeight()}`);
+  console.log(` * Is landscaped: ${documentInfo.isLandscape()}`);
+  console.log(` * Is Encrypted: ${documentInfo.isPasswordProtected()}`);
 }
 
-module.exports = getSourceDocumentInfo
+module.exports = getSourceDocumentInfo;

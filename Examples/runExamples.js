@@ -1,26 +1,41 @@
-const examples = require('./conversionExamples')
+/**
+ * Run Examples Script
+ *
+ * This script executes various GroupDocs.Conversion examples to demonstrate
+ * document conversion capabilities. Examples are run in parallel for efficiency.
+ *
+ * To run specific examples, comment out the ones you don't want to execute.
+ */
 
-// CALL EXAMPLES
-examples.getPossibleConversions()
-examples.getSourceDocumentInfo()
+const examples = require('./examples')
 
 ;(async () => {
   try {
-    console.log('Start conversion. \nIn Main() method uncomment the example that you want to run.')
-    // await examples.setLicenseFromFile() // You can pass the licensePath as an argument, it's optional
-    await examples.setLicenseFromStream()
-    
+    console.log('='.repeat(60));
+    console.log('GroupDocs.Conversion for Node.js via Java - Code Examples');
+    console.log('='.repeat(60));
+
+    // Set license from stream
+    // Note: You can also use setLicenseFromFile() and pass a licensePath argument
+    await examples.setLicenseFromStream();
+
+    // Run conversion examples in parallel
     await Promise.all([
-      /* NOTE: Please uncomment the example you want to try out */
-      /* Basic usage */
-      examples.convertToHtml(), 
-      examples.convertToPdf(),  
+      // ========================================================================
+      // Basic Conversion Examples
+      // ========================================================================
+      examples.getPossibleConversions(),
+      examples.getSourceDocumentInfo(),
+      examples.convertToHtml(),
+      examples.convertToPdf(),
       examples.convertToPresentation(),
       examples.convertToSpreadsheet(),
       examples.convertToWordProcessing(),
-      /* Advanced usage */
-        /* Converting */
-      examples.addWatermark(), 
+
+      // ========================================================================
+      // Advanced Conversion Examples
+      // ========================================================================
+      examples.addWatermark(),
       examples.convertConsecutivePagesPdf(),
       examples.convertSpecificPagesPdf(),
       examples.convertToPdfWithAdvancedOptions(),
@@ -29,52 +44,71 @@ examples.getSourceDocumentInfo()
       examples.convertToPresentationWithAdvancedOptions(),
       examples.convertToSpreadsheetWithAdvancedOptions(),
       examples.convertToWordProcessingWithAdvancedOptions(),
-        /* LoadOptions */
-          /* PDF */
+
+      // ========================================================================
+      // Load Options Examples - PDF
+      // ========================================================================
       examples.convertPdfAndFlattenAllFields(),
       examples.convertPdfAndHideAnnotations(),
       examples.convertPdfAndRemoveEmbeddedFiles(),
-          /* Presentation */
+
+      // ========================================================================
+      // Load Options Examples - Presentation
+      // ========================================================================
       examples.convertPresentationByHidingComments(),
       examples.convertPresentationBySpecifyingFontSubstitution(),
       examples.convertPresentationWithHiddenSlidesIncluded(),
-          /* WordProcessing */
+
+      // ========================================================================
+      // Load Options Examples - Word Processing
+      // ========================================================================
       examples.convertWordProcessingByHidingComments(),
       examples.convertWordProcessingByHidingTrackedChanges(),
       examples.convertWordProcessingBySpecifyingFontSubstitution(),
-          /* Spreadsheet */
+
+      // ========================================================================
+      // Load Options Examples - Spreadsheet
+      // ========================================================================
       examples.convertSpreadsheetAndHideComments(),
       examples.convertSpreadsheetByShowingGridLines(),
       examples.convertSpreadsheetBySkippingEmptyRowsAndColumns(),
       examples.convertSpreadsheetBySpecifyingFontsubstitution(),
       examples.convertSpreadsheetBySpecifyingRange(),
       examples.convertSpreadsheetWithHiddenSheetsIncluded(),
-          /* XML */
+
+      // ========================================================================
+      // Load Options Examples - Other Formats
+      // ========================================================================
       examples.convertXmlAsDataSourceToSpreadsheet(),
-          /* CAD */
-     // examples.convertCadAndSpecifyLayouts(), // TODO
-      // examples.convertCadAndSpecifyWidthAndHeight(),
-          /* CSV */
+      // examples.convertCadAndSpecifyLayouts(), // Uncomment when CAD support is ready
+      // examples.convertCadAndSpecifyWidthAndHeight(), // Uncomment when CAD support is ready
       examples.convertCsvByConvertingDateTimeAndNumericData(),
       examples.convertCsvBySpecifyingDelimiter(),
       examples.convertCsvBySpecifyingEncoding(),
-          /* Email */
       examples.convertEmailWithAlteringFieldsVisibility(),
-          /* Note */
       examples.convertNoteBySpecifyingFontSubstitution(),
-          /* TXT */
       examples.convertTxtByControllingLeadingSpacesBehavior(),
       examples.convertTxtByControllingTrailingSpacesBehavior(),
-      //examples.convertTxtBySpecifyingEncoding(), // TODO: charset exception
-          /* Load From Different Sources */
+      // examples.convertTxtBySpecifyingEncoding(), // Disabled due to charset exception
+
+      // ========================================================================
+      // Loading from Different Sources
+      // ========================================================================
       examples.loadDocumentFromUrl(),
       examples.loadDocumentFromStream(),
       examples.loadDocumentFromLocalDisk(),
-    ])
-    console.log('The end of process.')
-    process.exit(0)
-  } catch (err) {
-    console.error(err)
-    process.exit(1)
+    ]);
+
+    console.log('\n');
+    console.log('='.repeat(60));
+    console.log('Done! All examples completed successfully.');
+    console.log('='.repeat(60));
+    process.exit(0);
+  } catch (error) {
+    console.log('\n');
+    console.error('='.repeat(60));
+    console.error('Error running examples:', error);
+    console.error('='.repeat(60));
+    process.exit(1);
   }
-})()
+})();

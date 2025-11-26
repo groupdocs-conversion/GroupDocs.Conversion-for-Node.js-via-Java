@@ -44,3 +44,12 @@ node_modules/
 # Optional npm cache directory
 .npm
 .npmrc
+
+# Package lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+
+# License files
+*.lic

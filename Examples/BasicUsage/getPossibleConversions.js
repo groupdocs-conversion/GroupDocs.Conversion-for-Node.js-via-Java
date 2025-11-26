@@ -1,32 +1,51 @@
-const util = require('util')
+const util = require('util');
+const path = require('path');
 
 /**
- * This example demonstrates how to get to what formats the source document could be converted
+ * This example demonstrates how to get all possible conversion formats for a source document.
+ *
+ * @param {Object} groupdocs - The GroupDocs.Conversion library instance
+ * @param {string} inputFilePath - Path to the input document file
  */
 function getPossibleConversions(groupdocs, inputFilePath) {
-  const converter = new groupdocs.conversion.Converter(inputFilePath)
-  const conversions = converter.getPossibleConversions()
+  // Initialize converter with input file
+  const converter = new groupdocs.Converter(inputFilePath);
+
+  // Get all possible conversions for the document
+  const conversions = converter.getPossibleConversions();
+
+  // Display source document information
   console.log(
     util.format(
-      '%s is of type %s and could be converted to:\n',
-      inputFilePath,
-      conversions.getSource().getExtension()
-    )
-  )
+      '\n✓ `%s` file is of type %s and could be converted to:\n',
+      path.basename(inputFilePath),
+      conversions.getSource().getExtension().toUpperCase(),
+    ),
+  );
 
-  const items = conversions.getAll()
-  console.log(items)
+  // Get all available conversion formats
+  const items = conversions.getAll();
 
-  items.spliterator().getExactSizeIfKnown()
+  // Initialize spliterator for iteration
+  items.spliterator().getExactSizeIfKnown();
+
+  // Separate primary and secondary conversions
+  const primary = [];
+  const secondary = [];
 
   for (let i = 0; i < items.size(); i += 1) {
-    const item = items.get(i)
-    console.log(
-      `\t ${item.getFormat().getExtension()} as ${
-        item.isPrimary() ? 'primary' : 'secondary'
-      } conversion.\n`
-    )
+    const item = items.get(i);
+    const extension = item.getFormat().getExtension();
+    if (item.isPrimary()) {
+      primary.push(extension);
+    } else {
+      secondary.push(extension);
+    }
   }
+
+  // Display conversions as arrays
+  console.log(`Primary: [${primary.join(', ')}]`);
+  console.log(`Secondary: [${secondary.join(', ')}]`);
 }
 
-module.exports = getPossibleConversions
+module.exports = getPossibleConversions;

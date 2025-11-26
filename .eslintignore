@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Output files
+Examples/Output/
+
+# Build artifacts
+*.tgz
+
+# License files
+*.lic
+
+# Documentation
+*.md
+
+# Lock files
+package-lock.json
+
