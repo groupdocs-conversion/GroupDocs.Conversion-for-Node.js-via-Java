@@ -1,3 +1,4 @@
+const java = require('java');
 const path = require('path');
 
 /**
@@ -14,7 +15,9 @@ const path = require('path');
 async function convertCsvBySpecifyingEncoding(groupdocs, inputFilePath, outputFolder) {
   // Configure CSV load options
   const loadOptions = new groupdocs.CsvLoadOptions();
-  loadOptions.setEncoding('Shift_JIS'); // Set encoding to Shift-JIS (Japanese)
+  // Create Charset object for Shift-JIS (Japanese) - equivalent to Charset.forName("shift_jis") in Java
+  const charset = java.callStaticMethodSync('java.nio.charset.Charset', 'forName', 'shift_jis');
+  loadOptions.setEncoding(charset); // Set encoding using Charset object
 
   // Set output file path
   const outputPath = `${outputFolder}/ConvertCsvBySpecifyingEncoding.pdf`;

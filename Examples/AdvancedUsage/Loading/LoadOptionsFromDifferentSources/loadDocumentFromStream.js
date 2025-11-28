@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+const java = require('java');
 const path = require('path');
 
 /**
@@ -23,8 +23,15 @@ async function loadDocumentFromStream(groupdocs, inputFilePath, outputFolder) {
     // Read data from stream using GroupDocs API
     const stream = await groupdocs.readDataFromStream(readStream);
 
+    // Create Supplier<InputStream> that returns the stream (equivalent to Java lambda: () -> stream)
+    const streamSupplier = java.newProxy('java.util.function.Supplier', {
+      get: function() {
+        return stream;
+      }
+    });
+
     // Initialize converter with stream data
-    const converter = new groupdocs.Converter(stream);
+    const converter = new groupdocs.Converter(streamSupplier);
 
     // Configure PDF conversion options
     const convertOptions = new groupdocs.PdfConvertOptions();
@@ -32,7 +39,12 @@ async function loadDocumentFromStream(groupdocs, inputFilePath, outputFolder) {
     console.log(`\n✓ Load from Stream: ${path.basename(outputPath)}`);
     return converter.convert(outputPath, convertOptions);
   } catch (error) {
-    throw new Error(error);
+    // Preserve the original error if it's already an Error object
+    if (error instanceof Error) {
+      throw error;
+    }
+    // Otherwise, wrap it in an Error
+    throw new Error(String(error));
   }
 }
 

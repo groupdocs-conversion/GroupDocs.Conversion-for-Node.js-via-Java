@@ -27,8 +27,8 @@ async function convertToPdfWithAdvancedOptions(groupdocs, inputFilePath, outputF
   convertOptions.setPagesCount(1); // Convert only 1 page
   convertOptions.setRotate(groupdocs.Rotation.On180); // Rotate 180 degrees
   convertOptions.setDpi(300); // Set resolution to 300 DPI
-  convertOptions.setWidth(1024); // Set output width
-  convertOptions.setHeight(768); // Set output height
+  convertOptions.setPageWidth(1024); // Set output width
+  convertOptions.setPageHeight(768); // Set output height
 
   console.log(`\n✓ Convert to PDF (Advanced): ${path.basename(outputPath)}`);
   return converter.convert(outputPath, convertOptions);

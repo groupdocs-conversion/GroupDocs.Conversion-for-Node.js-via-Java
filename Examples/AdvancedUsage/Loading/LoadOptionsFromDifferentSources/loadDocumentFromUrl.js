@@ -22,8 +22,15 @@ async function loadDocumentFromUrl(groupdocs, outputFolder) {
     // Open stream from URL
     const stream = new URL(url).openStream();
 
-    // Initialize converter with stream from URL
-    const converter = new groupdocs.Converter(stream);
+    // Create Supplier<InputStream> that returns the stream (equivalent to Java lambda: () -> stream)
+    const streamSupplier = java.newProxy('java.util.function.Supplier', {
+      get: function() {
+        return stream;
+      }
+    });
+
+    // Initialize converter with Supplier<InputStream>
+    const converter = new groupdocs.Converter(streamSupplier);
 
     // Configure PDF conversion options
     const convertOptions = new groupdocs.PdfConvertOptions();
@@ -31,7 +38,12 @@ async function loadDocumentFromUrl(groupdocs, outputFolder) {
     console.log(`\n✓ Load from URL: ${path.basename(outputPath)}`);
     return converter.convert(outputPath, convertOptions);
   } catch (error) {
-    throw new Error(error);
+    // Preserve the original error if it's already an Error object
+    if (error instanceof Error) {
+      throw error;
+    }
+    // Otherwise, wrap it in an Error
+    throw new Error(String(error));
   }
 }
 
