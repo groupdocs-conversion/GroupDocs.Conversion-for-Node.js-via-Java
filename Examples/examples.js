@@ -100,9 +100,7 @@ class Examples {
   constructor() {
     // Initialize license from environment variable
     const lic = Constants.LICENSE_PATH;
-    if (!lic || !lic.endsWith('.lic')) {
-      console.log('License is not found, continuing with demo version!');
-    } else {
+    if (lic && lic.endsWith('.lic')) {
       this.licensePath = lic;
     }
 
@@ -150,20 +148,20 @@ class Examples {
 
   /**
    * Sets the GroupDocs license from a file path.
-   * @param {string} [licensePath=''] - Path to license file. If not provided, uses licensePath from constructor
+   * @param {string} [licensePath=''] - Path to license file. If not provided, uses licensePath from constructor or Constants
    * @returns {Promise} Promise that resolves when license is set
    */
   async setLicenseFromFile(licensePath = '') {
-    return setLicenseFromFile(groupdocs, licensePath || this.licensePath);
+    return setLicenseFromFile(groupdocs, licensePath || this.licensePath || Constants.LICENSE_PATH);
   }
 
   /**
    * Sets the GroupDocs license from a file stream.
-   * @param {string} [licensePath=''] - Path to license file. If not provided, uses licensePath from constructor
+   * @param {string} [licensePath=''] - Path to license file. If not provided, uses licensePath from constructor or Constants
    * @returns {Promise} Promise that resolves when license is set
    */
   async setLicenseFromStream(licensePath = '') {
-    return setLicenseFromStream(groupdocs, licensePath || this.licensePath);
+    return setLicenseFromStream(groupdocs, licensePath || this.licensePath || Constants.LICENSE_PATH);
   }
 
   // ============================================================================

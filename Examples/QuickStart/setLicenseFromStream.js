@@ -9,6 +9,11 @@ const fs = require('fs');
  */
 async function setLicenseFromStream(groupdocs, licensePath) {
   try {
+    // Check if license path is provided
+    if (!licensePath) {
+      throw new Error('License path is not provided');
+    }
+
     // Create read stream from license file
     const licenseStream = fs.createReadStream(licensePath);
 
@@ -21,14 +26,17 @@ async function setLicenseFromStream(groupdocs, licensePath) {
 
     console.log('\n✓ License set successfully.');
   } catch (err) {
-    console.log(err);
+    // Only log error details if it's not a missing license path
+    if (err.message !== 'License path is not provided') {
+      console.log(err);
+    }
     console.log('\n' + '='.repeat(60));
     console.log('License file not found or invalid.');
     console.log('='.repeat(60));
-    console.log('\nTo obtain a license:');
+    console.log('To obtain a license:');
     console.log('  • Visit: https://purchase.groupdocs.com/');
-    console.log('  • Request a temporary license: https://purchase.groupdocs.com/temporary-license');
-    console.log('  • Learn more: https://purchase.groupdocs.com/faqs/licensing');
+    console.log('  • Request a temporary license: https://purchase.groupdocs.com/temp-license/104266');
+    console.log('  • Learn more: https://purchase.groupdocs.com/faqs/licensing/');
     console.log('='.repeat(60) + '\n');
   }
 }

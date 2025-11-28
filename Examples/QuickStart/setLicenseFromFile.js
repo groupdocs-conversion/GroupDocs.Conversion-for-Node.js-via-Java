@@ -16,10 +16,10 @@ async function setLicenseFromFile(groupdocs, licensePath) {
     console.log('\n' + '='.repeat(60));
     console.log('License file not found or invalid.');
     console.log('='.repeat(60));
-    console.log('\nTo obtain a license:');
+    console.log('To obtain a license:');
     console.log('  • Visit: https://purchase.groupdocs.com/');
-    console.log('  • Request a temporary license: https://purchase.groupdocs.com/temporary-license');
-    console.log('  • Learn more: https://purchase.groupdocs.com/faqs/licensing');
+    console.log('  • Request a temporary license: https://purchase.groupdocs.com/temp-license/104266');
+    console.log('  • Learn more: https://purchase.groupdocs.com/faqs/licensing/');
     console.log('='.repeat(60) + '\n');
   }
 }
